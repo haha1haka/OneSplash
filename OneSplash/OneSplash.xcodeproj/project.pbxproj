@@ -9,21 +9,46 @@
 /* Begin PBXBuildFile section */
 		F43C15E929012BAB00E9C151 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43C15E829012BAB00E9C151 /* AppDelegate.swift */; };
 		F43C15EB29012BAB00E9C151 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43C15EA29012BAB00E9C151 /* SceneDelegate.swift */; };
-		F43C15ED29012BAB00E9C151 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43C15EC29012BAB00E9C151 /* ViewController.swift */; };
-		F43C15F029012BAB00E9C151 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F43C15EE29012BAB00E9C151 /* Main.storyboard */; };
 		F43C15F229012BAC00E9C151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F43C15F129012BAC00E9C151 /* Assets.xcassets */; };
 		F43C15F529012BAC00E9C151 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F43C15F329012BAC00E9C151 /* LaunchScreen.storyboard */; };
+		F43CC4372901378800224588 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43CC4362901378800224588 /* MainViewController.swift */; };
+		F43CC439290137CF00224588 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43CC438290137CF00224588 /* BaseView.swift */; };
+		F43CC43B290137E100224588 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43CC43A290137E100224588 /* BaseViewController.swift */; };
+		F43CC43D2901381100224588 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43CC43C2901381100224588 /* BaseCollectionViewCell.swift */; };
+		F43CC43F2901384400224588 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43CC43E2901384400224588 /* UIViewController.swift */; };
+		F43CC441290138A500224588 /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43CC440290138A500224588 /* NSObject.swift */; };
+		F43CC443290138E100224588 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43CC442290138E100224588 /* MainView.swift */; };
+		F43CC445290138E600224588 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43CC444290138E600224588 /* MainCell.swift */; };
+		F43CC4482901410D00224588 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F43CC4472901410D00224588 /* SnapKit */; };
+		F43CC44A290173B600224588 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43CC449290173B600224588 /* HeaderView.swift */; };
+		F46B162C29028226001984C0 /* Unsplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46B162B29028226001984C0 /* Unsplash.swift */; };
+		F46B162E29028271001984C0 /* UnsplashAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46B162D29028271001984C0 /* UnsplashAPIKey.swift */; };
+		F46B163029028296001984C0 /* UnsplashEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46B162F29028296001984C0 /* UnsplashEndPoint.swift */; };
+		F46B1632290282AD001984C0 /* UnsplashService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46B1631290282AD001984C0 /* UnsplashService.swift */; };
+		F4C4971F29028486004E4FFD /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4971E29028486004E4FFD /* HTTPMethod.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F43C15E529012BAB00E9C151 /* OneSplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneSplash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F43C15E829012BAB00E9C151 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F43C15EA29012BAB00E9C151 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F43C15EC29012BAB00E9C151 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F43C15EF29012BAB00E9C151 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F43C15F129012BAC00E9C151 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F43C15F429012BAC00E9C151 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F43C15F629012BAC00E9C151 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F43CC4362901378800224588 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F43CC438290137CF00224588 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		F43CC43A290137E100224588 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		F43CC43C2901381100224588 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		F43CC43E2901384400224588 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		F43CC440290138A500224588 /* NSObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
+		F43CC442290138E100224588 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		F43CC444290138E600224588 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
+		F43CC449290173B600224588 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		F46B162B29028226001984C0 /* Unsplash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unsplash.swift; sourceTree = "<group>"; };
+		F46B162D29028271001984C0 /* UnsplashAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashAPIKey.swift; sourceTree = "<group>"; };
+		F46B162F29028296001984C0 /* UnsplashEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashEndPoint.swift; sourceTree = "<group>"; };
+		F46B1631290282AD001984C0 /* UnsplashService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashService.swift; sourceTree = "<group>"; };
+		F4C4971E29028486004E4FFD /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F43CC4482901410D00224588 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +82,179 @@
 		F43C15E729012BAB00E9C151 /* OneSplash */ = {
 			isa = PBXGroup;
 			children = (
-				F43C15E829012BAB00E9C151 /* AppDelegate.swift */,
-				F43C15EA29012BAB00E9C151 /* SceneDelegate.swift */,
-				F43C15EC29012BAB00E9C151 /* ViewController.swift */,
-				F43C15EE29012BAB00E9C151 /* Main.storyboard */,
-				F43C15F129012BAC00E9C151 /* Assets.xcassets */,
-				F43C15F329012BAC00E9C151 /* LaunchScreen.storyboard */,
-				F43C15F629012BAC00E9C151 /* Info.plist */,
+				F43CC425290135B100224588 /* Resources */,
+				F43CC424290135AC00224588 /* Sources */,
+				F43CC4232901359800224588 /* Supportings */,
 			);
 			path = OneSplash;
+			sourceTree = "<group>";
+		};
+		F43CC4232901359800224588 /* Supportings */ = {
+			isa = PBXGroup;
+			children = (
+				F43C15F629012BAC00E9C151 /* Info.plist */,
+			);
+			path = Supportings;
+			sourceTree = "<group>";
+		};
+		F43CC424290135AC00224588 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				F43CC42D2901365100224588 /* Application */,
+				F43CC426290135BE00224588 /* Presentation */,
+				F43CC42F2901369200224588 /* Data */,
+				F43CC42E2901368500224588 /* Networking */,
+				F43CC430290136B100224588 /* Commons */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		F43CC425290135B100224588 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F43C15F329012BAC00E9C151 /* LaunchScreen.storyboard */,
+				F43C15F129012BAC00E9C151 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F43CC426290135BE00224588 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				F43CC427290135D600224588 /* Main */,
+				F43CC428290135DE00224588 /* Search */,
+				F43CC42C2901363900224588 /* Profile */,
+				F43CC42B2901361100224588 /* Setting */,
+				F43CC42A290135F200224588 /* Onboarding */,
+				F43CC429290135E500224588 /* Detail */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		F43CC427290135D600224588 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F43CC4362901378800224588 /* MainViewController.swift */,
+				F43CC442290138E100224588 /* MainView.swift */,
+				F43CC444290138E600224588 /* MainCell.swift */,
+				F43CC449290173B600224588 /* HeaderView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		F43CC428290135DE00224588 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		F43CC429290135E500224588 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		F43CC42A290135F200224588 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		F43CC42B2901361100224588 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		F43CC42C2901363900224588 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		F43CC42D2901365100224588 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F43C15E829012BAB00E9C151 /* AppDelegate.swift */,
+				F43C15EA29012BAB00E9C151 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		F43CC42E2901368500224588 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F46B162B29028226001984C0 /* Unsplash.swift */,
+				F4C4971E29028486004E4FFD /* HTTPMethod.swift */,
+				F46B162D29028271001984C0 /* UnsplashAPIKey.swift */,
+				F46B162F29028296001984C0 /* UnsplashEndPoint.swift */,
+				F46B1631290282AD001984C0 /* UnsplashService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		F43CC42F2901369200224588 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		F43CC430290136B100224588 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				F43CC435290136DF00224588 /* Components */,
+				F43CC432290136C400224588 /* Bases */,
+				F43CC431290136B700224588 /* Extensions */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		F43CC431290136B700224588 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F43CC434290136D300224588 /* Foundation */,
+				F43CC433290136CE00224588 /* UIKit */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F43CC432290136C400224588 /* Bases */ = {
+			isa = PBXGroup;
+			children = (
+				F43CC438290137CF00224588 /* BaseView.swift */,
+				F43CC43A290137E100224588 /* BaseViewController.swift */,
+				F43CC43C2901381100224588 /* BaseCollectionViewCell.swift */,
+			);
+			path = Bases;
+			sourceTree = "<group>";
+		};
+		F43CC433290136CE00224588 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				F43CC43E2901384400224588 /* UIViewController.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		F43CC434290136D300224588 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				F43CC440290138A500224588 /* NSObject.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		F43CC435290136DF00224588 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +273,9 @@
 			dependencies = (
 			);
 			name = OneSplash;
+			packageProductDependencies = (
+				F43CC4472901410D00224588 /* SnapKit */,
+			);
 			productName = OneSplash;
 			productReference = F43C15E529012BAB00E9C151 /* OneSplash.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +304,9 @@
 				Base,
 			);
 			mainGroup = F43C15DC29012BAB00E9C151;
+			packageReferences = (
+				F43CC4462901410D00224588 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = F43C15E629012BAB00E9C151 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +323,6 @@
 			files = (
 				F43C15F529012BAC00E9C151 /* LaunchScreen.storyboard in Resources */,
 				F43C15F229012BAC00E9C151 /* Assets.xcassets in Resources */,
-				F43C15F029012BAB00E9C151 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +333,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F43C15ED29012BAB00E9C151 /* ViewController.swift in Sources */,
+				F43CC43F2901384400224588 /* UIViewController.swift in Sources */,
+				F43CC443290138E100224588 /* MainView.swift in Sources */,
+				F43CC441290138A500224588 /* NSObject.swift in Sources */,
+				F46B162E29028271001984C0 /* UnsplashAPIKey.swift in Sources */,
+				F43CC43B290137E100224588 /* BaseViewController.swift in Sources */,
+				F43CC445290138E600224588 /* MainCell.swift in Sources */,
+				F46B163029028296001984C0 /* UnsplashEndPoint.swift in Sources */,
+				F43CC4372901378800224588 /* MainViewController.swift in Sources */,
 				F43C15E929012BAB00E9C151 /* AppDelegate.swift in Sources */,
+				F46B162C29028226001984C0 /* Unsplash.swift in Sources */,
+				F43CC44A290173B600224588 /* HeaderView.swift in Sources */,
 				F43C15EB29012BAB00E9C151 /* SceneDelegate.swift in Sources */,
+				F4C4971F29028486004E4FFD /* HTTPMethod.swift in Sources */,
+				F43CC439290137CF00224588 /* BaseView.swift in Sources */,
+				F43CC43D2901381100224588 /* BaseCollectionViewCell.swift in Sources */,
+				F46B1632290282AD001984C0 /* UnsplashService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F43C15EE29012BAB00E9C151 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F43C15EF29012BAB00E9C151 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F43C15F329012BAC00E9C151 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -289,10 +489,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M526U856M5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = OneSplash/Info.plist;
+				INFOPLIST_FILE = OneSplash/Supportings/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -321,10 +520,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = M526U856M5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = OneSplash/Info.plist;
+				INFOPLIST_FILE = OneSplash/Supportings/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -366,6 +564,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F43CC4462901410D00224588 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F43CC4472901410D00224588 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F43CC4462901410D00224588 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F43C15DD29012BAB00E9C151 /* Project object */;
 }
