@@ -1,7 +1,17 @@
 import UIKit
 import SnapKit
+import Kingfisher
+
+
 
 class TopicPhotoCell: BaseCollectionViewCell {
+    
+    let imageView: UIImageView = {
+        let view = UIImageView()
+        
+        return view
+    }()
+    
     
     let label: UILabel = {
         let view = UILabel()
@@ -24,6 +34,7 @@ class TopicPhotoCell: BaseCollectionViewCell {
         }
         self.layer.cornerRadius = 8
     }
+    
     func configureAttributes(with title: String) {
         label.text = title
     }

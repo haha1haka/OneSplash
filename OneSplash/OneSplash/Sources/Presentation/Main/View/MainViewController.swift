@@ -63,6 +63,16 @@ extension MainViewController {
             self.dataSource.apply(snapshot)
         }
         
+        viewModel.topicPhotosDataStore.bind { [weak self] topicPhotos in // [USTopicPhoto]
+            guard let self = self else { return }
+            var snapshot = self.dataSource.snapshot()
+            snapshot.deleteSections(["Topic'sPhotos"])
+            snapshot.appendSections(["Topic'sPhotos"])
+            snapshot.appendItems(topicPhotos.map(SectionItem.topicPhoto))
+            self.dataSource.apply(snapshot)
+            
+        }
+        
 //        UnsplashService.shared.requestTopics{ [weak self] topics in
 //
 //            guard let self = self else { return }
