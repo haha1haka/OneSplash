@@ -8,6 +8,9 @@ struct USTopic: Decodable, Identifiable, Hashable {
     var id: String
     var title: String
 }
+//struct USPhoto: Hashable {
+//    var 
+//}
 
 struct USError: Error, Decodable {
     var errors: [String]

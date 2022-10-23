@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F42B10142903957D006162D1 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42B10132903957D006162D1 /* MainViewModel.swift */; };
+		F42B101729039753006162D1 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42B101629039753006162D1 /* Observable.swift */; };
 		F43C15E929012BAB00E9C151 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43C15E829012BAB00E9C151 /* AppDelegate.swift */; };
 		F43C15EB29012BAB00E9C151 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43C15EA29012BAB00E9C151 /* SceneDelegate.swift */; };
 		F43C15F229012BAC00E9C151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F43C15F129012BAC00E9C151 /* Assets.xcassets */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F42B10132903957D006162D1 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		F42B101629039753006162D1 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		F43C15E529012BAB00E9C151 /* OneSplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneSplash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F43C15E829012BAB00E9C151 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F43C15EA29012BAB00E9C151 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +67,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F42B101129039541006162D1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F42B10132903957D006162D1 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F42B101229039545006162D1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F43CC444290138E600224588 /* MainCell.swift */,
+				F43CC442290138E100224588 /* MainView.swift */,
+				F43CC449290173B600224588 /* HeaderView.swift */,
+				F43CC4362901378800224588 /* MainViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F42B101829039754006162D1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F42B101629039753006162D1 /* Observable.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		F43C15DC29012BAB00E9C151 = {
 			isa = PBXGroup;
 			children = (
@@ -134,10 +165,8 @@
 		F43CC427290135D600224588 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				F43CC4362901378800224588 /* MainViewController.swift */,
-				F43CC442290138E100224588 /* MainView.swift */,
-				F43CC444290138E600224588 /* MainCell.swift */,
-				F43CC449290173B600224588 /* HeaderView.swift */,
+				F42B101229039545006162D1 /* View */,
+				F42B101129039541006162D1 /* ViewModel */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -208,6 +237,7 @@
 		F43CC430290136B100224588 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				F42B101829039754006162D1 /* Utils */,
 				F43CC435290136DF00224588 /* Components */,
 				F43CC432290136C400224588 /* Bases */,
 				F43CC431290136B700224588 /* Extensions */,
@@ -337,10 +367,12 @@
 				F43CC443290138E100224588 /* MainView.swift in Sources */,
 				F43CC441290138A500224588 /* NSObject.swift in Sources */,
 				F46B162E29028271001984C0 /* UnsplashAPIKey.swift in Sources */,
+				F42B101729039753006162D1 /* Observable.swift in Sources */,
 				F43CC43B290137E100224588 /* BaseViewController.swift in Sources */,
 				F43CC445290138E600224588 /* MainCell.swift in Sources */,
 				F46B163029028296001984C0 /* UnsplashEndPoint.swift in Sources */,
 				F43CC4372901378800224588 /* MainViewController.swift in Sources */,
+				F42B10142903957D006162D1 /* MainViewModel.swift in Sources */,
 				F43C15E929012BAB00E9C151 /* AppDelegate.swift in Sources */,
 				F46B162C29028226001984C0 /* Unsplash.swift in Sources */,
 				F43CC44A290173B600224588 /* HeaderView.swift in Sources */,

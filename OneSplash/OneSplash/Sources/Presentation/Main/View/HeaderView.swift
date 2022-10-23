@@ -20,15 +20,11 @@ class HeaderView: UICollectionReusableView {
         super.init(coder: coder)
     }
     
-
-    
-
     func configureHierarchy() {
         addSubview(titleLabel)
     }
     
     func configureLayout() {
-        
         titleLabel.snp.makeConstraints {
             $0.leading.trailing.equalTo(self).offset(15)
             $0.top.bottom.equalTo(self).offset(10)
