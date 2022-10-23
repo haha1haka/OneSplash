@@ -49,6 +49,8 @@ extension MainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        selfView.collectionView.delegate = self
+        
         viewModel.requestTopic()
         
         viewModel.topicDataStore.bind { [weak self] topics in // [USTopic]
@@ -134,3 +136,22 @@ extension MainViewController {
     }
 }
 
+extension MainViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
+        
+        let sectionItem = dataSource.itemIdentifier(for: indexPath)
+        
+        switch sectionItem {
+        case .topic(let unTopic):
+            viewModel.requestTopicPhotos(form: unTopic)
+        case .topicPhoto(let unTopicPhoto):
+            print("")
+        default:
+            break
+        }
+        
+        
+    }
+}

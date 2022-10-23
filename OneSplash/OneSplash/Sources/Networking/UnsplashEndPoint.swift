@@ -12,7 +12,7 @@ extension UnsplashEndPoint {
     var path: String {
         switch self {
         case .topics: return "/topics"
-        case .topicPhotos(let id): return "/topics/\(id)/photos?page=1"
+        case .topicPhotos(let id): return "/topics/\(id)/photos"
         case .search(let page,let query): return "search/photos?page=\(page)&query=\(query)"
         }
     }
@@ -24,5 +24,5 @@ extension UnsplashEndPoint {
 // topic photo
 // "https://api.unsplash.com/topics/:id_or_slug/photos?page=530"
 
-
+// https://api.unsplash.com/topics/qPYsDzvJOYc/photos?page=1
 

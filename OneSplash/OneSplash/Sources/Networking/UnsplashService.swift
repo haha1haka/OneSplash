@@ -73,8 +73,12 @@ class UnsplashService {
     }
     
     func requestTopicPhoto(from topic: USTopic, onSuccess: @escaping (([USTopicPhoto]) -> Void)) {
+        
         var urlComponents = URLComponents(string: UnsplashEndPoint.baseURL)
-        urlComponents?.path = "\(UnsplashEndPoint.topicPhotos(id: topic.id))"
+        urlComponents?.path = UnsplashEndPoint.topicPhotos(id: topic.id).path
+        urlComponents?.queryItems = [
+             URLQueryItem(name: "page", value: "1")
+        ]
         
         guard let url = urlComponents?.url else { return }
         
