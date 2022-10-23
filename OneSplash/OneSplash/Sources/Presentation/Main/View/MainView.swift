@@ -23,9 +23,7 @@ class MainView: BaseView {
     }
     
     func configureCollectionViewLayout() -> UICollectionViewLayout {
-        
-
-        
+    
         let configuration = UICollectionViewCompositionalLayoutConfiguration()
         
         let collectionViewLayout = UICollectionViewCompositionalLayout(
