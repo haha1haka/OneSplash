@@ -74,6 +74,8 @@ extension MainViewController {
 //            guard let self = self else { return }
 //            print(usError.errors.first!)
 //        }
+        
+        //UnsplashService.shared.requestTopicPhoto(from: <#T##USTopic#>, onSuccess: <#T##(([USTopicPhoto]) -> Void)##(([USTopicPhoto]) -> Void)##([USTopicPhoto]) -> Void#>)
 
     }
 }
