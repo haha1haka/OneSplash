@@ -1,22 +1,20 @@
 import UIKit
 
-enum Section: Int, CaseIterable {
-    case topic, pictures
-    
-    var columnCount: Int {
-        switch self {
-        case .topic:
-            return 1
-        case .pictures:
-            return 2
-        }
-    }
-    
-}
+//enum Section: Int, CaseIterable {
+//    case topic, pictures
+//
+//    var columnCount: Int {
+//        switch self {
+//        case .topic:
+//            return 1
+//        case .pictures:
+//            return 2
+//        }
+//    }
+//
+//}
 
 class MainViewController: BaseViewController {
-    
-    
     
     let selfView = MainView()
     
@@ -24,9 +22,16 @@ class MainViewController: BaseViewController {
         view = selfView
     }
     
-    typealias Datasource = UICollectionViewDiffableDataSource<String, USTopic>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<String, USTopic>
-    typealias CellRegistration = UICollectionView.CellRegistration<MainCell, USTopic>
+    enum SectionItem: Hashable {
+        case topic(USTopic)
+        case topicPhoto(USTopicPhoto)
+    }
+    
+
+    
+    typealias Datasource = UICollectionViewDiffableDataSource<String, SectionItem>
+    //typealias Snapshot = NSDiffableDataSourceSnapshot<String, SectionItem>
+    typealias CellRegistration = UICollectionView.CellRegistration<TopicCell, SectionItem>
     typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<HeaderView>
     
     var dataSource: Datasource!
@@ -46,13 +51,13 @@ extension MainViewController {
         
         viewModel.requestTopic()
         
-        viewModel.topicDataStore.bind { [weak self] topics in
+        viewModel.topicDataStore.bind { [weak self] topics in // [USTopic]
             print("🥶  \(topics)")
             guard let self = self else { return }
             var snapshot = self.dataSource.snapshot()
             snapshot.deleteSections(["Topics"])
             snapshot.appendSections(["Topics"])
-            snapshot.appendItems(topics)
+            snapshot.appendItems(topics.map(SectionItem.topic))
             self.dataSource.apply(snapshot)
         }
         
@@ -83,25 +88,36 @@ extension MainViewController {
         dataSource.supplementaryViewProvider = makeSupplementaryViewDataSource()
     }
     
-    func applySnapShot() {
-        var snapshot = dataSource.snapshot()
-        snapshot.appendSections(["Topics"])
-        snapshot.appendItems(viewModel.topicDataStore.value, toSection: "Topics")
-        dataSource.apply(snapshot)
-    }
+//    func applySnapShot() {
+//        var snapshot = dataSource.snapshot()
+//        snapshot.appendSections(["Topics"])
+//        snapshot.appendItems(viewModel.topicDataStore.value, toSection: "Topics")
+//        dataSource.apply(snapshot)
+//    }
     
 }
 
 extension MainViewController {
     func makeCellDataSource() -> Datasource {
         let cellRegistration = CellRegistration { cell, indexPath, itemIdentifier in
-            cell.configureAttributes(with: itemIdentifier.title)
+            
+            switch itemIdentifier {
+            case .topic(let itemIdentifier):
+                cell.configureAttributes(with: itemIdentifier )
+            default:
+                print("")
+            }
+            
         }
+        
         return Datasource(collectionView: selfView.collectionView) { collectionView, indexPath, itemIdentifier in
             let cell = self.selfView.collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
             return cell
         }
     }
+    
+    
+    
     
     func makeSupplementaryViewDataSource() -> Datasource.SupplementaryViewProvider {
         let headerRegistration = HeaderRegistration(elementKind: UICollectionView.elementKindSectionHeader) { supplementaryView, elementKind, indexPath in

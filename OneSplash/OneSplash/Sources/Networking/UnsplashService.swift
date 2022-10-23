@@ -11,8 +11,6 @@ class UnsplashService {
         "Authorization": "Client-ID \(UnsplashAPIKey.appKey)"
     ]
     
-    var aa = "aa"
-    
     func requestTopics(
         onSuccess: @escaping (([USTopic]) -> Void),
         onFailure: @escaping ((USError) -> Void))
@@ -71,6 +69,16 @@ class UnsplashService {
         }.resume()
         
     }
+    
+    //func requestTopicPhoto(onSuccess: @escaping (([USphoto])))
+    
+    
+    
+    
+    
+    
+    
+    
     
     //var currentPage: [USTopic: Int] = [:]
     

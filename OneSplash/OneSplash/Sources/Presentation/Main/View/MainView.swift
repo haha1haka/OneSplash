@@ -1,11 +1,7 @@
 import UIKit
 import SnapKit
 
-enum SectionType: Int {
-    case topic
-    case photo
-}
-    
+
 
 class MainView: BaseView {
     
