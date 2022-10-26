@@ -22,27 +22,27 @@ class TopicPhotoCell: BaseCollectionViewCell {
         return view
     }()
     
-    var topicPhoto: USTopicPhoto?
     
-    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        let attributes = super.preferredLayoutAttributesFitting(layoutAttributes)
-        guard let topicPhoto = topicPhoto else { return attributes }
-        let ratio = CGFloat(topicPhoto.height) / CGFloat(topicPhoto.width)
-        
-//        switch ratio {
-//        case 0.5..<0.8:
-//        case 0.8..<1.0:
-//        case 1.0..<1.1:
-//        default:
-//            break
-//        }
-        
-        
-        
-        let fractionalHeight = attributes.bounds.width * ratio
-        attributes.bounds.size.height = fractionalHeight
-        return attributes
-    }
+    
+//    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+//        let attributes = super.preferredLayoutAttributesFitting(layoutAttributes)
+//        guard let topicPhoto = topicPhoto else { return attributes }
+//        let ratio = CGFloat(topicPhoto.height) / CGFloat(topicPhoto.width)
+//
+////        switch ratio {
+////        case 0.5..<0.8:
+////        case 0.8..<1.0:
+////        case 1.0..<1.1:
+////        default:
+////            break
+////        }
+//
+//
+//
+//        let fractionalHeight = attributes.bounds.height * ratio
+//        attributes.bounds.size.height = fractionalHeight
+//        return attributes
+//    }
     
 
     override func configureHierarchy() {

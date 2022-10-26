@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F400608B290821C3000EDAF5 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F400608A290821C3000EDAF5 /* SearchResultViewController.swift */; };
 		F41013C92904E4640035FE16 /* TopicPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41013C82904E4640035FE16 /* TopicPhotoCell.swift */; };
 		F41013CC290503AA0035FE16 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F41013CB290503AA0035FE16 /* Kingfisher */; };
+		F420B8512905587500809EBD /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F420B8502905587500809EBD /* TabBarController.swift */; };
+		F420B853290558E500809EBD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F420B852290558E500809EBD /* SearchViewController.swift */; };
+		F420B855290558F100809EBD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F420B854290558F100809EBD /* ProfileViewController.swift */; };
+		F420B8572905594100809EBD /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F420B8562905594100809EBD /* SearchView.swift */; };
+		F420B8592905594800809EBD /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F420B8582905594800809EBD /* ProfileView.swift */; };
 		F42B10142903957D006162D1 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42B10132903957D006162D1 /* MainViewModel.swift */; };
 		F42B101729039753006162D1 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42B101629039753006162D1 /* Observable.swift */; };
 		F43C15E929012BAB00E9C151 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43C15E829012BAB00E9C151 /* AppDelegate.swift */; };
@@ -29,11 +35,18 @@
 		F46B162E29028271001984C0 /* UnsplashAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46B162D29028271001984C0 /* UnsplashAPIKey.swift */; };
 		F46B163029028296001984C0 /* UnsplashEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46B162F29028296001984C0 /* UnsplashEndPoint.swift */; };
 		F46B1632290282AD001984C0 /* UnsplashService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46B1631290282AD001984C0 /* UnsplashService.swift */; };
+		F4924195290948480047AFC1 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4924194290948480047AFC1 /* SearchResultView.swift */; };
 		F4C4971F29028486004E4FFD /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4971E29028486004E4FFD /* HTTPMethod.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F400608A290821C3000EDAF5 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		F41013C82904E4640035FE16 /* TopicPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicPhotoCell.swift; sourceTree = "<group>"; };
+		F420B8502905587500809EBD /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		F420B852290558E500809EBD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		F420B854290558F100809EBD /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F420B8562905594100809EBD /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		F420B8582905594800809EBD /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F42B10132903957D006162D1 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		F42B101629039753006162D1 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		F43C15E529012BAB00E9C151 /* OneSplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneSplash.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +68,7 @@
 		F46B162D29028271001984C0 /* UnsplashAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashAPIKey.swift; sourceTree = "<group>"; };
 		F46B162F29028296001984C0 /* UnsplashEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashEndPoint.swift; sourceTree = "<group>"; };
 		F46B1631290282AD001984C0 /* UnsplashService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashService.swift; sourceTree = "<group>"; };
+		F4924194290948480047AFC1 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		F4C4971E29028486004E4FFD /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,6 +193,8 @@
 		F43CC428290135DE00224588 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				F4924196290948530047AFC1 /* View */,
+				F4924197290948550047AFC1 /* ViewModel */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -207,6 +223,8 @@
 		F43CC42C2901363900224588 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				F420B854290558F100809EBD /* ProfileViewController.swift */,
+				F420B8582905594800809EBD /* ProfileView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -288,8 +306,27 @@
 		F43CC435290136DF00224588 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F420B8502905587500809EBD /* TabBarController.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		F4924196290948530047AFC1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F420B8562905594100809EBD /* SearchView.swift */,
+				F420B852290558E500809EBD /* SearchViewController.swift */,
+				F4924194290948480047AFC1 /* SearchResultView.swift */,
+				F400608A290821C3000EDAF5 /* SearchResultViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F4924197290948550047AFC1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,14 +413,21 @@
 				F46B162E29028271001984C0 /* UnsplashAPIKey.swift in Sources */,
 				F42B101729039753006162D1 /* Observable.swift in Sources */,
 				F43CC43B290137E100224588 /* BaseViewController.swift in Sources */,
+				F420B855290558F100809EBD /* ProfileViewController.swift in Sources */,
+				F400608B290821C3000EDAF5 /* SearchResultViewController.swift in Sources */,
 				F43CC445290138E600224588 /* TopicCell.swift in Sources */,
 				F46B163029028296001984C0 /* UnsplashEndPoint.swift in Sources */,
 				F43CC4372901378800224588 /* MainViewController.swift in Sources */,
 				F42B10142903957D006162D1 /* MainViewModel.swift in Sources */,
 				F43C15E929012BAB00E9C151 /* AppDelegate.swift in Sources */,
+				F4924195290948480047AFC1 /* SearchResultView.swift in Sources */,
 				F46B162C29028226001984C0 /* Unsplash.swift in Sources */,
+				F420B8572905594100809EBD /* SearchView.swift in Sources */,
 				F41013C92904E4640035FE16 /* TopicPhotoCell.swift in Sources */,
+				F420B8512905587500809EBD /* TabBarController.swift in Sources */,
+				F420B8592905594800809EBD /* ProfileView.swift in Sources */,
 				F43CC44A290173B600224588 /* HeaderView.swift in Sources */,
+				F420B853290558E500809EBD /* SearchViewController.swift in Sources */,
 				F43C15EB29012BAB00E9C151 /* SceneDelegate.swift in Sources */,
 				F4C4971F29028486004E4FFD /* HTTPMethod.swift in Sources */,
 				F43CC439290137CF00224588 /* BaseView.swift in Sources */,

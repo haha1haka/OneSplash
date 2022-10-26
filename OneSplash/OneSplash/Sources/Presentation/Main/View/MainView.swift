@@ -1,14 +1,11 @@
 import UIKit
 import SnapKit
 
-
-
 class MainView: BaseView {
-    
     
     lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         return view
     }()
     
@@ -22,6 +19,10 @@ class MainView: BaseView {
             
         }
     }
+    
+    var topicPhoto: USTopicPhoto?
+    
+    var fractionalHeight: CGFloat? = 1.0
     
     func configureCollectionViewLayout() -> UICollectionViewLayout {
         
@@ -111,35 +112,101 @@ class MainView: BaseView {
 //    }
     
     
+//    func photoSection() -> NSCollectionLayoutSection {
+//
+//
+//        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+//                                              heightDimension: .estimated(128))
+//
+//
+//
+//        let leftItem  = NSCollectionLayoutItem(layoutSize: itemSize)
+//        leftItem.contentInsets = NSDirectionalEdgeInsets(top: 3, leading: 0, bottom: 3, trailing: 0)
+//
+//
+//        let rightItem  = NSCollectionLayoutItem(layoutSize: itemSize)
+//        rightItem.contentInsets = NSDirectionalEdgeInsets(top: 3, leading: 0, bottom: 3, trailing: 0)
+//
+//
+//        let groupSize1 = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
+//                                               heightDimension: .estimated(128))
+//
+//
+//        let leftgGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize1, subitems: [leftItem])
+//        leftgGroup.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 5.0, bottom: 20, trailing: 5.0)
+//
+//        let rightGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize1, subitems: [rightItem])
+//
+//
+//
+//
+//        let totalGroup = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(128)), subitems: [leftgGroup, rightGroup])
+//
+//
+//
+//        let section = NSCollectionLayoutSection(group: totalGroup)
+//        section.contentInsets = NSDirectionalEdgeInsets(top: 5.0, leading: 5.0, bottom: 5.0, trailing: 5.0)
+//        return section
+//
+//    }
+
+    
     func photoSection() -> NSCollectionLayoutSection {
     
         
+        if let topicPhoto = topicPhoto {
+            
+            switch topicPhoto.height {
+            case 0..<2000:
+                fractionalHeight = CGFloat.random(in: 0.9..<1.0)
+            case 2000..<4000:
+                fractionalHeight = CGFloat.random(in: 1.0..<1.1)
+            case 4000..<6000:
+                fractionalHeight = CGFloat.random(in: 1.2..<1.3)
+            default:
+                fractionalHeight = CGFloat.random(in: 1.3..<1.4)
+            }
+        }
+        
+
+        
+        
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                              heightDimension: .estimated(128))
+                                              heightDimension: .fractionalHeight(fractionalHeight!))
         
-        let groupSize1 = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5 ),
-                                               heightDimension: .estimated(128))
-        let groupSize2 = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5 ),
-                                               heightDimension: .estimated(256))
         
-        let item  = NSCollectionLayoutItem(layoutSize: itemSize)
         
-        let leftgGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize1, subitems: [item])
-        leftgGroup.contentInsets = NSDirectionalEdgeInsets(top: 5.0, leading: 5.0, bottom: 5.0, trailing: 5.0)
-    
-        let rightGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize2, subitems: [item])
+        let leftItem  = NSCollectionLayoutItem(layoutSize: itemSize)
+        leftItem.contentInsets = NSDirectionalEdgeInsets(top: 3, leading: 0, bottom: 3, trailing: 0)
+        
+        
+        let rightItem  = NSCollectionLayoutItem(layoutSize: itemSize)
+        rightItem.contentInsets = NSDirectionalEdgeInsets(top: 3, leading: 0, bottom: 3, trailing: 0)
+        
+        
+        let groupSize1 = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
+                                                heightDimension: .estimated(128))
+        
+        
+        let leftgGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize1, subitems: [leftItem])
+        leftgGroup.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 5.0, bottom: 20, trailing: 5.0)
+        
+        let rightGroup = NSCollectionLayoutGroup.vertical(layoutSize: groupSize1, subitems: [rightItem])
+        
+        
+        
         
         let totalGroup = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(128)), subitems: [leftgGroup, rightGroup])
+        
         
         
         let section = NSCollectionLayoutSection(group: totalGroup)
         section.contentInsets = NSDirectionalEdgeInsets(top: 5.0, leading: 5.0, bottom: 5.0, trailing: 5.0)
         return section
         
+        
+              
     }
-
-    
-    
     
 
 

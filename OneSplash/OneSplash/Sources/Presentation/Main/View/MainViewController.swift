@@ -30,9 +30,8 @@ class MainViewController: BaseViewController {
     
     
     typealias Datasource = UICollectionViewDiffableDataSource<String, SectionItem>
-    //typealias Snapshot = NSDiffableDataSourceSnapshot<String, SectionItem>
-    typealias topicCellRegistration = UICollectionView.CellRegistration<TopicCell, SectionItem>
-    typealias topicPhotoCellRegistration = UICollectionView.CellRegistration<TopicPhotoCell, SectionItem>
+    typealias topicCellRegistration = UICollectionView.CellRegistration<TopicCell, USTopic>
+    typealias topicPhotoCellRegistration = UICollectionView.CellRegistration<TopicPhotoCell, USTopicPhoto>
     typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<HeaderView>
     
     var dataSource: Datasource!
@@ -83,16 +82,24 @@ extension MainViewController {
 
 extension MainViewController {
     
-    func configureCollectionViewDataSource() {
+    func configureCollectionViewDataSource(){
+        dataSource = configureCellDataSource()
+        dataSource.supplementaryViewProvider = configureSupplementaryItemDataSource()
+    }
+}
+
+extension MainViewController {
+    
+    func configureCellDataSource() -> Datasource {
         
-        let topicCellRegistration = UICollectionView.CellRegistration<TopicCell, USTopic> { cell, indexPath, itemIdentifier in
+        let topicCellRegistration = topicCellRegistration { cell, indexPath, itemIdentifier in
             cell.configureAttributes(with: itemIdentifier)
         }
-        let topicPhotoCellRegistraion = UICollectionView.CellRegistration<TopicPhotoCell, USTopicPhoto> { cell, indexPath, itemIdentifier in
+        let topicPhotoCellRegistraion = topicPhotoCellRegistration { cell, indexPath, itemIdentifier in
             cell.configureAttributes(with: itemIdentifier)
         }
         
-        dataSource = Datasource(collectionView: selfView.collectionView) { collectionView, indexPath, itemIdentifier in
+        return Datasource(collectionView: selfView.collectionView) { collectionView, indexPath, itemIdentifier in
             switch itemIdentifier {
             case .topic(let usTopic):
                 let cell = self.selfView.collectionView.dequeueConfiguredReusableCell(using: topicCellRegistration, for: indexPath, item: usTopic)
@@ -102,48 +109,13 @@ extension MainViewController {
                 return cell
             }
         }
-        
-        
-        dataSource.supplementaryViewProvider = makeSupplementaryViewDataSource()
-        
     }
-    
-}
-
-extension MainViewController {
-//    func makeCellDataSource() -> Datasource {
-//
-//
-//
-//        let cellRegistration = topicCellRegistration { cell, indexPath, itemIdentifier in
-//
-//            switch itemIdentifier {
-//            case .topic(let itemIdentifier):
-//                cell.configureAttributes(with: itemIdentifier )
-//            default:
-//                print("")
-//            }
-//
-//        }
-//
-//        return Datasource(collectionView: selfView.collectionView) { collectionView, indexPath, itemIdentifier in
-//            let cell = self.selfView.collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
-//            return cell
-//        }
-//    }
-    
-    
-//    func cell(collectionView: UICollectionView, indexPath: IndexPath, item: SectionItem) -> UICollectionViewCell {
-//
-//    }
-    
-    
-    func makeSupplementaryViewDataSource() -> Datasource.SupplementaryViewProvider {
+        
+    func configureSupplementaryItemDataSource() -> Datasource.SupplementaryViewProvider {
         let headerRegistration = HeaderRegistration(elementKind: UICollectionView.elementKindSectionHeader) { supplementaryView, elementKind, indexPath in
             guard let sectionIdentifier = self.dataSource.sectionIdentifier(for: indexPath.section) else { return }
             supplementaryView.titleLabel.text = sectionIdentifier.description
         }
-        
         return { collectionView, elementKind, indexPath in
             return collectionView.dequeueConfiguredReusableSupplementary(using: headerRegistration, for: indexPath)
         }
