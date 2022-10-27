@@ -20,7 +20,7 @@ class MainView: BaseView {
         }
     }
     
-    var topicPhoto: USTopicPhoto?
+    var topicPhoto: USPhoto?
     
     var fractionalHeight: CGFloat? = 1.0
     

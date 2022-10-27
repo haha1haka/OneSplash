@@ -24,14 +24,14 @@ class MainViewController: BaseViewController {
     
     enum SectionItem: Hashable {
         case topic(USTopic)
-        case topicPhoto(USTopicPhoto)
+        case topicPhoto(USPhoto)
     }
     
     
     
     typealias Datasource = UICollectionViewDiffableDataSource<String, SectionItem>
     typealias topicCellRegistration = UICollectionView.CellRegistration<TopicCell, USTopic>
-    typealias topicPhotoCellRegistration = UICollectionView.CellRegistration<TopicPhotoCell, USTopicPhoto>
+    typealias topicPhotoCellRegistration = UICollectionView.CellRegistration<PhotoCell, USPhoto>
     typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<HeaderView>
     
     var dataSource: Datasource!

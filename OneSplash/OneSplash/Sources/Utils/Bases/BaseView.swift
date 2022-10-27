@@ -5,6 +5,7 @@ class BaseView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
+        configureAttributes()
         configureHierarchy()
         configureLayout()
     }
@@ -13,7 +14,8 @@ class BaseView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureHierarchy() { }
-    func configureLayout() { }
+    func configureAttributes() {}
+    func configureHierarchy() {}
+    func configureLayout() {}
     
 }

@@ -3,11 +3,11 @@ import Foundation
 class MainViewModel {
     var topicDataStore: Observable<[USTopic]> = Observable([USTopic(id: "", title: "")])
     
-    var topicPhotosDataStore: Observable<[USTopicPhoto]> = Observable([USTopicPhoto(id: "",
+    var topicPhotosDataStore: Observable<[USPhoto]> = Observable([USPhoto(id: "",
                                                                                    width: 0,
                                                                                    height: 0,
                                                                                    user: USUser(id: "", name: ""),
-                                                                                   urls: USUrls(thumb: "")
+                                                                                   urls: USUrls(regular: "")
                                                                                   )])
     
     
@@ -22,7 +22,7 @@ class MainViewModel {
     }
     
     func requestTopicPhotos(form selectedTopic: USTopic) {
-        UnsplashService.shared.requestTopicPhoto(from: selectedTopic) { [weak self] unTopicPhotos in
+        UnsplashService.shared.requestTopicPhotos(from: selectedTopic) { [weak self] unTopicPhotos in
             guard let self = self else { return }
             self.topicPhotosDataStore.value = unTopicPhotos
             print("🤢  \(unTopicPhotos)")

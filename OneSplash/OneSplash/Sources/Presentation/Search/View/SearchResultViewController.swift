@@ -38,12 +38,6 @@ extension SearchResultViewController {
             return cell
         }
         
-//                let headerRegistration = HeaderRegistration(elementKind: UICollectionView.elementKindSectionHeader) { supplementaryView, elementKind, indexPath in
-//                    guard let sectionIdentifier = self.dataSource.sectionIdentifier(for: indexPath.section) else { return }
-//                    supplementaryView.titleLabel.text = sectionIdentifier.description
-//                }
-        
-        
         let headerRegistration = HeaderRegistration(elementKind: UICollectionView.elementKindSectionHeader) { supplementaryView, elementKind, indexPath in
             guard let sectionIdentifier = self.dataSource.sectionIdentifier(for: indexPath.section) else { return }
             var configuration = UIListContentConfiguration.sidebarHeader()
@@ -55,8 +49,6 @@ extension SearchResultViewController {
         dataSource.supplementaryViewProvider = { collectionView, elementKind, indexPath in
             return collectionView.dequeueConfiguredReusableSupplementary(using: headerRegistration, for: indexPath)
         }
-        
-        
     }
     
     
