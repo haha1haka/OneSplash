@@ -4,6 +4,7 @@ enum UnsplashEndPoint {
     case topics
     case topicPhotos(id: String)
     case search
+    case collections
     
     static let baseURL = "https://api.unsplash.com/"
 }
@@ -14,6 +15,7 @@ extension UnsplashEndPoint {
         case .topics: return "/topics"
         case .topicPhotos(let id): return "/topics/\(id)/photos"
         case .search: return "/search/photos"
+        case .collections: return "/collections"
         }
     }
 }
@@ -28,3 +30,6 @@ extension UnsplashEndPoint {
 
 //search
 // https://api.unsplash.com/search/photos?page=1&query=office
+
+//search collections
+// https://api.unsplash.com/search/collections?page=1&query=office

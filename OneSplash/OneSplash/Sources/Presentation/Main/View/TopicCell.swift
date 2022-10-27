@@ -8,7 +8,6 @@ class TopicCell: BaseCollectionViewCell {
         view.textAlignment = .center
         view.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         view.numberOfLines = .zero
-        
         return view
     }()
     

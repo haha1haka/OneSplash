@@ -45,11 +45,34 @@ struct USError: Error, Decodable {
     }
 }
 
+// MARK: - Collections
+struct Collections: Decodable {
+    let total, totalPages: Int
+    let results: [Result]
+
+    enum CodingKeys: String, CodingKey {
+        case total
+        case totalPages = "total_pages"
+        case results
+    }
+}
 
 
+struct Result: Decodable {
+    let title: String
+    let totalPhotos: Int //⭐️
+    let user: USUser // 여기 안에 name 만
+    let previewPhotos: [PreviewPhoto]
+
+    enum CodingKeys: String, CodingKey {
+        case user
+        case title
+        case totalPhotos = "total_photos"
+        case previewPhotos = "preview_photos"
+    }
+}
 
 
-
-
-
-
+struct PreviewPhoto: Decodable {
+    let urls: USUrls
+}

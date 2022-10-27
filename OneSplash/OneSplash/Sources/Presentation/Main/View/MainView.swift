@@ -172,7 +172,7 @@ class MainView: BaseView {
         
         
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                              heightDimension: .fractionalHeight(fractionalHeight!))
+                                              heightDimension: .estimated(128))
         
         
         

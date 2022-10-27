@@ -176,7 +176,58 @@ class UnsplashService {
     }
 
     
-    
+    func requestCollections(onSuccess: @escaping ((USSearch) -> Void)) {
+        
+        var urlComponents = URLComponents(string: UnsplashEndPoint.baseURL)
+        urlComponents?.path = UnsplashEndPoint.collections.path
+        
+        urlComponents?.queryItems = [
+            URLQueryItem(name: "page", value: "1")
+        ]
+        
+        guard let url = urlComponents?.url else { return }
+        print("⚙️\(url)")
+        var urlRequest = URLRequest(url: url)
+        
+        urlRequest.httpMethod = HTTPMethod.get.rawValue.uppercased()
+        
+        urlRequest.allHTTPHeaderFields = UnsplashService.headers
+        
+        URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            guard let httpResponse = response as? HTTPURLResponse else { return }
+            
+            print("🙈 Request \(urlRequest.url!)")
+            print("🙉 Response \(httpResponse.statusCode)")
+            
+            if let data = data {
+                if (200...299).contains(httpResponse.statusCode) {
+                    print("✅ Success", data)
+                    
+                    do {
+                        let searchPhotos = try JSONDecoder().decode(USSearch.self, from: data)
+                        
+                        DispatchQueue.main.async {
+                            onSuccess(searchPhotos)
+                        }
+                        
+                        
+                    } catch let decodingError {
+                        print("⁉️💰 Failure", decodingError)
+                    }
+                    
+                } else {
+                    print("❌ Failure", String(data: data, encoding: .utf8)!)
+                }
+                
+                if let error = error {
+                    print("❌ Failure (Internal)", error.localizedDescription)
+                    return
+                }
+                
+            }
+            
+        }.resume()
+    }
     
     
     
