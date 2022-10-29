@@ -130,9 +130,8 @@
 			children = (
 				F489363F290CB746004CB39F /* Controller */,
 				F43CC442290138E100224588 /* MainView.swift */,
-				F43CC444290138E600224588 /* TopicCell.swift */,
-				F41013C82904E4640035FE16 /* PhotoCell.swift */,
 				F43CC449290173B600224588 /* HeaderView.swift */,
+				F4893643290CD23A004CB39F /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -401,6 +400,15 @@
 				F420B854290558F100809EBD /* AlbumViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		F4893643290CD23A004CB39F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F43CC444290138E600224588 /* TopicCell.swift */,
+				F41013C82904E4640035FE16 /* PhotoCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		F4924196290948530047AFC1 /* View */ = {
