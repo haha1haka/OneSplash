@@ -1,5 +1,5 @@
 import UIKit
-import SnapKit
+
 
 class PhotoDetailViewController: BaseViewController {
     
@@ -9,33 +9,13 @@ class PhotoDetailViewController: BaseViewController {
     
     let viewModel = PhotoDetailViewModel()
     
-    // 뷰모델로 해보기
+    // ⭐️ 뷰모델로 해보기
     var currentPhotoItemIndex: Int?
     
-    var floatingButton: UIButton!
-    
     override func loadView() { view = selfView }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        //⭐️ 왜 with 못불러 오는지 확인 하기
-        floatingButton.layer.cornerRadius = 30 //roundButton.layer.frame.size.width/2
-        floatingButton.backgroundColor = .green
-        floatingButton.layer.masksToBounds = true
-        floatingButton.setImage(UIImage(systemName: "ic_add_white_2x"), for: .normal)
-        floatingButton.translatesAutoresizingMaskIntoConstraints = false
-
-        floatingButton.snp.makeConstraints {
-            $0.width.height.equalTo(60)
-            $0.bottom.equalTo(selfView.safeAreaLayoutGuide).inset(10)
-            $0.trailing.equalTo(selfView.safeAreaLayoutGuide).inset(10)
-        }
         
-        
-        
-    }
-    
 }
+
 // MARK: - LifeCycle
 extension PhotoDetailViewController {
     override func viewDidLoad() {
@@ -61,36 +41,24 @@ extension PhotoDetailViewController {
             
         }
         
+        selfView.floatingButton.addTarget(self, action: #selector(ButtonClick), for: UIControl.Event.touchUpInside)
         
-        
-        
-        
-        self.floatingButton = UIButton(type: .custom)
-        self.floatingButton.setTitleColor(UIColor.orange, for: .normal)
-        self.floatingButton.addTarget(self, action: #selector(ButtonClick), for: UIControl.Event.touchUpInside)
-        self.view.addSubview(self.floatingButton)
-
-        
-        
-        
-
-        
-
-        
-        
-        
-        
-        
-    }
-    @objc
-    func ButtonClick() {
-        //var snapshot = collectionViewDataSource.snapshot()
-        //snapshot.
-        print("🌞\(selfView.pageIndex)")
-        
-        print("")
     }
 }
+
+
+
+
+// MARK: - addTargetMethod
+extension PhotoDetailViewController {
+    @objc
+    func ButtonClick() {
+        print("🌞\(selfView.pageIndex)")
+    }
+}
+
+
+
 
 
 
