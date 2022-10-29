@@ -9,7 +9,7 @@ class PhotoDetailView: BaseView {
     
     lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
-        view.backgroundColor = .brown
+        //view.backgroundColor = .brown
         return view
     }()
     var floatingButton = UIButton(type: .custom)

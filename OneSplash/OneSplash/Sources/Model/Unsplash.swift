@@ -12,6 +12,8 @@ struct USPhoto: Decodable, Hashable {
     let height: Int
     let user: USUser
     let urls: USUrls
+    
+    
 }
 
 struct USSearch: Decodable, Hashable {

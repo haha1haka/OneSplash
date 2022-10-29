@@ -51,9 +51,20 @@ extension PhotoDetailViewController {
 
 // MARK: - addTargetMethod
 extension PhotoDetailViewController {
+    /*
+     - 받아온 pageIndex 이용해서 id 값 접근 --> 램에 저장 하기
+     - 
+     */
     @objc
     func ButtonClick() {
         print("🌞\(selfView.pageIndex)")
+        guard let photos = viewModel.PhotosDataStore.value else { return }
+        guard let pageIndex = selfView.pageIndex else { return }
+        
+        print("💀\(photos[pageIndex])")
+        
+        
+
     }
 }
 
