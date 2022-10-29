@@ -14,7 +14,7 @@ struct USPhoto: Decodable, Hashable {
     let urls: USUrls
 }
 
-struct USSearch: Decodable {
+struct USSearch: Decodable, Hashable {
     let total: Int
     let totalPages: Int
     let results: [USPhoto]
@@ -35,8 +35,6 @@ struct USUrls: Decodable, Hashable {
     var regular: String
 }
 
-
-
 struct USError: Error, Decodable {
     var errors: [String]
     
@@ -45,10 +43,10 @@ struct USError: Error, Decodable {
     }
 }
 
-// MARK: - Collections
+
 struct Collections: Decodable {
     let total, totalPages: Int
-    let results: [Result]
+    let results: [USCollection]
 
     enum CodingKeys: String, CodingKey {
         case total
@@ -58,7 +56,7 @@ struct Collections: Decodable {
 }
 
 
-struct Result: Decodable {
+struct USCollection: Decodable, Hashable {
     let title: String
     let totalPhotos: Int //⭐️
     let user: USUser // 여기 안에 name 만
@@ -73,6 +71,6 @@ struct Result: Decodable {
 }
 
 
-struct PreviewPhoto: Decodable {
+struct PreviewPhoto: Decodable, Hashable {
     let urls: USUrls
 }

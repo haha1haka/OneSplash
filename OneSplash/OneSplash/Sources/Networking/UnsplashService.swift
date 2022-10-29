@@ -176,7 +176,7 @@ class UnsplashService {
     }
 
     
-    func requestCollections(onSuccess: @escaping ((USSearch) -> Void)) {
+    func requestSearchCollections(onSuccess: @escaping ((USCollection) -> Void)) {
         
         var urlComponents = URLComponents(string: UnsplashEndPoint.baseURL)
         urlComponents?.path = UnsplashEndPoint.collections.path
@@ -202,12 +202,12 @@ class UnsplashService {
             if let data = data {
                 if (200...299).contains(httpResponse.statusCode) {
                     print("✅ Success", data)
-                    
+                    print("👺\(data)")
                     do {
-                        let searchPhotos = try JSONDecoder().decode(USSearch.self, from: data)
-                        
+                        let collection = try JSONDecoder().decode(USCollection.self, from: data)
+                        print(collection)
                         DispatchQueue.main.async {
-                            onSuccess(searchPhotos)
+                            onSuccess(collection)
                         }
                         
                         
