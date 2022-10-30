@@ -1,4 +1,5 @@
 import UIKit
+import Kingfisher
 
 class AlbumViewController: BaseViewController {
     
@@ -6,12 +7,27 @@ class AlbumViewController: BaseViewController {
     override func loadView() {
         view  = selfView
     }
-    
-    var collectionViewDataSource: UICollectionViewDiffableDataSource<Int, String>!
+    let viewModel = AlbumViewModel()
+    var collectionViewDataSource: UICollectionViewDiffableDataSource<Int, Photo>!
     
     override func configureInit() {
         configureCollectionViewDataSource()
-        applySnapshot()
+        //applySnapshot()
+    }
+}
+extension AlbumViewController {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.fetchPhoto()
+        
+        viewModel.photoList.bind { [weak self] photoList in
+            guard let self = self else { return }
+            var snapshot = NSDiffableDataSourceSnapshot<Int, Photo>()
+            let items = photoList
+            snapshot.appendSections([0])
+            snapshot.appendItems(items)
+            self.collectionViewDataSource.apply(snapshot)
+        }
     }
 }
 
@@ -21,11 +37,12 @@ extension AlbumViewController {
     func configureCollectionViewDataSource() {
         
         
-        let CellRegistration = UICollectionView.CellRegistration<PhotoCell,String> { cell, indexPath, itemIdentifier in
-            cell.label.text = itemIdentifier.description
+        let CellRegistration = UICollectionView.CellRegistration<PhotoCell,Photo> { cell, indexPath, itemIdentifier in
+            let imageUrl = URL(string: itemIdentifier.url)
+            cell.imageView.kf.setImage(with: imageUrl)
         }
         
-        collectionViewDataSource = UICollectionViewDiffableDataSource<Int, String>(collectionView: selfView.collectionView) {
+        collectionViewDataSource = UICollectionViewDiffableDataSource<Int, Photo>(collectionView: selfView.collectionView) {
             collectionView, indexPath, itemIdentifier in
             let cell = collectionView.dequeueConfiguredReusableCell(using: CellRegistration, for: indexPath, item: itemIdentifier)
             return cell
@@ -35,10 +52,7 @@ extension AlbumViewController {
     }
 
     func applySnapshot() {
-        var snapshot = NSDiffableDataSourceSnapshot<Int, String>()
-        snapshot.appendSections([0])
-        snapshot.appendItems(["1", "2", "3", "4", "5", "6", "7"])
-        collectionViewDataSource.apply(snapshot)
+
         
     }
 }
