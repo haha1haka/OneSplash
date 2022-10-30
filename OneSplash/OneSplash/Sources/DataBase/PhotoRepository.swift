@@ -31,6 +31,13 @@ class PhotoRepository: PhotoDataBaseRepository {
             print(error)
         }
     }
+//    func updatePhoto(item: USPhoto) {
+//        do {
+//            try database.write {
+//
+//            }
+//        }
+//    }
     
     
     
