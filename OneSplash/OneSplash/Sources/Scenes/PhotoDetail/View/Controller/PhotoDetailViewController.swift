@@ -68,12 +68,12 @@ extension PhotoDetailViewController {
         
         //⭐️ 질문하기
         let currentUSItem = photos[pageIndex]
-        let currenItem = Photo(id: currentUSItem.id, url: currentUSItem.urls.regular, like: false)
+        
         var downloadedImage: UIImage?
-        let imageUrl = URL(string: currenItem.url)
+        let imageUrl = URL(string: currentUSItem.urls?.regular ?? "")
 
         
-        viewModel.createPhoto(item: currenItem)
+        viewModel.createPhoto(item: currentUSItem)
         
         //⭐️ 킹피셔 개선
         URLSession.shared.dataTask(with: imageUrl!) { data, response, error in
@@ -83,7 +83,7 @@ extension PhotoDetailViewController {
             DispatchQueue.main.async() {
                 downloadedImage = UIImage(data: data)
                 //⭐️ 개선 해보기
-                DocumentManager.shared.saveImageToDocument(fileName: currenItem.id, image: downloadedImage ?? UIImage(systemName: "exclamationmark.triangle.fill")!)
+                DocumentManager.shared.saveImageToDocument(fileName: currentUSItem.id, image: downloadedImage ?? UIImage(systemName: "exclamationmark.triangle.fill")!)
             }
         }.resume()
 

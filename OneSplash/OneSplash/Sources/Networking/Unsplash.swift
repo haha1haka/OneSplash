@@ -7,12 +7,23 @@ struct USTopic: Decodable, Identifiable, Hashable {
     var title: String
 }
 
-struct USPhoto: Decodable, Hashable {
-    let id: String
-    let width: Int
-    let height: Int
-    let user: USUser
-    let urls: USUrls
+class USPhoto: Object, Decodable {
+    @Persisted var id: String
+    @Persisted var width: Int
+    @Persisted var height: Int
+    @Persisted var user: USUser?
+    @Persisted var urls: USUrls?
+    
+    convenience init(id: String, width: Int, height: Int, user: USUser, urls: USUrls) {
+        self.init()
+        self.id = id
+        self.width = width
+        self.height = height
+        self.user = user
+        self.urls = urls
+        
+    }
+    
 }
 
 struct USSearch: Decodable, Hashable {
@@ -27,13 +38,24 @@ struct USSearch: Decodable, Hashable {
     }
 }
 
-struct USUser: Decodable, Hashable {
-    var id: String
-    var name: String
+class USUser: Object, Decodable {
+    @Persisted  var id: String
+    @Persisted  var name: String
+    
+    convenience init(id: String, name: String) {
+        self.init()
+        self.id = id
+        self.name = name
+    }
 }
 
-struct USUrls: Decodable, Hashable {
-    var regular: String
+class USUrls:Object, Decodable {
+    @Persisted var regular: String
+    
+    convenience init(regular: String) {
+        self.init()
+        self.regular = regular
+    }
 }
 
 struct USError: Error, Decodable {

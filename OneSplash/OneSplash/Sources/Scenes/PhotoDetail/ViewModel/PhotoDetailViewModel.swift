@@ -6,7 +6,7 @@ class PhotoDetailViewModel {
     
     let photoRepository = PhotoRepository()
     
-    func createPhoto(item: Photo) {
+    func createPhoto(item: USPhoto) {
         print("🟩\(String(describing: photoRepository.database.configuration.fileURL))")
         photoRepository.createPhoto(item: item)
     }

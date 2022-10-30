@@ -50,11 +50,11 @@ class PhotoCell: BaseCollectionViewCell {
     }
     
     func configureAttributes(with item: USPhoto, labelIsEmpty: Bool = false) {
-        labelIsEmpty == false ? (label.text = item.user.name) : (label.text = "")
+        labelIsEmpty == false ? (label.text = item.user?.name) : (label.text = "")
         
 
     
-        let imageUrl = URL(string: item.urls.regular)
+        let imageUrl = URL(string: item.urls?.regular ?? "")
         imageView.kf.setImage(with: imageUrl)
         self.photoItem = item
     }
