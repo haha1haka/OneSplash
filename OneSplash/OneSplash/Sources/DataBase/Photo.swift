@@ -4,7 +4,7 @@ import RealmSwift
 class Photo: Object {
     
     @Persisted var id: String
-    @Persisted var urls: String
+    @Persisted var url: String
     @Persisted var like: Bool
     
     @Persisted(primaryKey: true) var objectId: ObjectId
@@ -12,7 +12,7 @@ class Photo: Object {
     convenience init(id: String, url: String, like: Bool) {
         self.init()
         self.id = id
-        self.urls = urls
+        self.url = url
         self.like = like
     }
 }

@@ -49,6 +49,7 @@ class SearchViewContoller: BaseViewController {
     
     let viewModel = SearchViewModel()
     
+    
     override func configureInit() {
         navigationItem.searchController = searchController
         print("SearchViewController")
@@ -60,9 +61,7 @@ class SearchViewContoller: BaseViewController {
 extension SearchViewContoller {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        var newSnapshot = dataSource.snapshot()
-//        newSnapshot.deleteAllItems()
-//        dataSource.apply(newSnapshot)
+        
     }
 }
 extension SearchViewContoller {

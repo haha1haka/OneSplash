@@ -2,8 +2,14 @@ import Foundation
 
 class SearchViewModel {
     
+    
+    
+    
     var searchPhotosDataStrore: Observable<USSearch?> = Observable(nil)
     var searchCollectionsDataStore: Observable<USCollection?> = Observable(nil)
+    
+    
+    
     
     func requestSearchPhotos(query: String) {
         UnsplashService.shared.requestSearchPhotos(query: query) { [weak self] usSearch in
@@ -20,6 +26,8 @@ class SearchViewModel {
             print("😈😈\(usColletion)")
         }
     }
+    
+    
     
     
     

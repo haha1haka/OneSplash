@@ -48,6 +48,7 @@
 		F4A64F2C290A5230004732B9 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A64F2B290A5230004732B9 /* SearchViewModel.swift */; };
 		F4C39FEC290E20160078ED81 /* AlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C39FEB290E20160078ED81 /* AlbumViewModel.swift */; };
 		F4C39FEE290E34BC0078ED81 /* PhotoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C39FED290E34BC0078ED81 /* PhotoRepository.swift */; };
+		F4C39FF4290E3AEE0078ED81 /* DocumentManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C39FF3290E3AEE0078ED81 /* DocumentManger.swift */; };
 		F4C4971F29028486004E4FFD /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4971E29028486004E4FFD /* HTTPMethod.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,7 @@
 		F4A64F2B290A5230004732B9 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		F4C39FEB290E20160078ED81 /* AlbumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewModel.swift; sourceTree = "<group>"; };
 		F4C39FED290E34BC0078ED81 /* PhotoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRepository.swift; sourceTree = "<group>"; };
+		F4C39FF3290E3AEE0078ED81 /* DocumentManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManger.swift; sourceTree = "<group>"; };
 		F4C4971E29028486004E4FFD /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +193,7 @@
 		F43CC424290135AC00224588 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				F4C39FF2290E3AE10078ED81 /* Manager */,
 				F43CC42D2901365100224588 /* Application */,
 				F43CC430290136B100224588 /* Commons */,
 				F43CC42E2901368500224588 /* Networking */,
@@ -443,6 +446,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		F4C39FF2290E3AE10078ED81 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				F4C39FF3290E3AEE0078ED81 /* DocumentManger.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -545,6 +556,7 @@
 				F43C15E929012BAB00E9C151 /* AppDelegate.swift in Sources */,
 				F4924195290948480047AFC1 /* SearchResultView.swift in Sources */,
 				F489363B290CB709004CB39F /* PhotoDetailViewModel.swift in Sources */,
+				F4C39FF4290E3AEE0078ED81 /* DocumentManger.swift in Sources */,
 				F46B162C29028226001984C0 /* Unsplash.swift in Sources */,
 				F41F6A42290B96E300F9B48F /* UserCell.swift in Sources */,
 				F420B8572905594100809EBD /* SearchView.swift in Sources */,
