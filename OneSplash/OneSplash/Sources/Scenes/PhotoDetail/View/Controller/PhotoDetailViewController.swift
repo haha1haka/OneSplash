@@ -9,8 +9,11 @@ class PhotoDetailViewController: BaseViewController {
     
     let viewModel = PhotoDetailViewModel()
     
+    
+    
     // ⭐️ 뷰모델로 해보기
     var currentPhotoItemIndex: Int?
+    
     
     override func loadView() { view = selfView }
         
@@ -41,7 +44,7 @@ extension PhotoDetailViewController {
             
         }
         
-        selfView.floatingButton.addTarget(self, action: #selector(ButtonClick), for: UIControl.Event.touchUpInside)
+        selfView.floatingButton.addTarget(self, action: #selector(saveButtonClicked), for: UIControl.Event.touchUpInside)
         
     }
 }
@@ -56,12 +59,18 @@ extension PhotoDetailViewController {
      -
      */
     @objc
-    func ButtonClick() {
-        print("🌞\(selfView.pageIndex)")
+    func saveButtonClicked() {
+        
+        //print("🌞\(selfView.pageIndex)")
         guard let photos = viewModel.PhotosDataStore.value else { return }
         guard let pageIndex = selfView.pageIndex else { return }
         
-        print("💀\(photos[pageIndex])")
+        
+        //⭐️ 질문하기
+        let currentUSItem = photos[pageIndex]
+        let currenItem = Photo(id: currentUSItem.id, url: currentUSItem.urls.regular, like: false)
+    
+        viewModel.createPhoto(item: currenItem)
         
         
 

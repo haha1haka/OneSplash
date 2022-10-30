@@ -44,9 +44,10 @@
 		F4893639290CB4EE004CB39F /* PhotoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4893638290CB4EE004CB39F /* PhotoDetailView.swift */; };
 		F489363B290CB709004CB39F /* PhotoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F489363A290CB708004CB39F /* PhotoDetailViewModel.swift */; };
 		F48B4A3D290D3DAE002D7EAC /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B4A3C290D3DAE002D7EAC /* Photo.swift */; };
-		F48B4A3F290D402B002D7EAC /* PhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48B4A3E290D402B002D7EAC /* PhotoAlbum.swift */; };
 		F4924195290948480047AFC1 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4924194290948480047AFC1 /* SearchResultView.swift */; };
 		F4A64F2C290A5230004732B9 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A64F2B290A5230004732B9 /* SearchViewModel.swift */; };
+		F4C39FEC290E20160078ED81 /* AlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C39FEB290E20160078ED81 /* AlbumViewModel.swift */; };
+		F4C39FEE290E34BC0078ED81 /* PhotoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C39FED290E34BC0078ED81 /* PhotoRepository.swift */; };
 		F4C4971F29028486004E4FFD /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4971E29028486004E4FFD /* HTTPMethod.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,9 +87,10 @@
 		F4893638290CB4EE004CB39F /* PhotoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailView.swift; sourceTree = "<group>"; };
 		F489363A290CB708004CB39F /* PhotoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewModel.swift; sourceTree = "<group>"; };
 		F48B4A3C290D3DAE002D7EAC /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
-		F48B4A3E290D402B002D7EAC /* PhotoAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbum.swift; sourceTree = "<group>"; };
 		F4924194290948480047AFC1 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		F4A64F2B290A5230004732B9 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		F4C39FEB290E20160078ED81 /* AlbumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewModel.swift; sourceTree = "<group>"; };
+		F4C39FED290E34BC0078ED81 /* PhotoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRepository.swift; sourceTree = "<group>"; };
 		F4C4971E29028486004E4FFD /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,10 +192,10 @@
 			isa = PBXGroup;
 			children = (
 				F43CC42D2901365100224588 /* Application */,
-				F43CC426290135BE00224588 /* Scenes */,
-				F43CC42F2901369200224588 /* DataBase */,
-				F43CC42E2901368500224588 /* Networking */,
 				F43CC430290136B100224588 /* Commons */,
+				F43CC42E2901368500224588 /* Networking */,
+				F43CC42F2901369200224588 /* DataBase */,
+				F43CC426290135BE00224588 /* Scenes */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -295,7 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				F48B4A3C290D3DAE002D7EAC /* Photo.swift */,
-				F48B4A3E290D402B002D7EAC /* PhotoAlbum.swift */,
+				F4C39FED290E34BC0078ED81 /* PhotoRepository.swift */,
 			);
 			path = DataBase;
 			sourceTree = "<group>";
@@ -400,6 +402,7 @@
 		F4893641290CB774004CB39F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F4C39FEB290E20160078ED81 /* AlbumViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4C39FEC290E20160078ED81 /* AlbumViewModel.swift in Sources */,
 				F4893637290CB4B3004CB39F /* PhotoDetailViewController.swift in Sources */,
 				F41F6A44290B977B00F9B48F /* ImageView.swift in Sources */,
 				F43CC43F2901384400224588 /* UIViewController.swift in Sources */,
@@ -552,9 +556,9 @@
 				F43C15EB29012BAB00E9C151 /* SceneDelegate.swift in Sources */,
 				F4C4971F29028486004E4FFD /* HTTPMethod.swift in Sources */,
 				F43CC439290137CF00224588 /* BaseView.swift in Sources */,
-				F48B4A3F290D402B002D7EAC /* PhotoAlbum.swift in Sources */,
 				F4A64F2C290A5230004732B9 /* SearchViewModel.swift in Sources */,
 				F43CC43D2901381100224588 /* BaseCollectionViewCell.swift in Sources */,
+				F4C39FEE290E34BC0078ED81 /* PhotoRepository.swift in Sources */,
 				F46B1632290282AD001984C0 /* UnsplashService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

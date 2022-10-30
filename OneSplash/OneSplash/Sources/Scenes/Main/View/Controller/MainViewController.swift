@@ -136,14 +136,16 @@ extension MainViewController: UICollectionViewDelegate {
         
         switch sectionItem {
             
-        case .topic(let unTopic):
-            return viewModel.requestTopicPhotos(form: unTopic)
+        case .topic(let usTopic):
+            return viewModel.requestTopicPhotos(form: usTopic)
             
-        case .topicPhoto( _):
+        case .topicPhoto(_):
             let photoDetailViewController = PhotoDetailViewController()
             
             //✅selected Item 의 index 넘겨서 다음 VC 의 viewdidload 에서 scrolltoItem 
             photoDetailViewController.currentPhotoItemIndex = indexPath.item
+            
+            
             
             photoDetailViewController.viewModel.PhotosDataStore.value = self.viewModel.topicPhotosDataStore.value
             
