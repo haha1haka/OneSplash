@@ -1,10 +1,11 @@
 import Foundation
+import RealmSwift
+
 
 struct USTopic: Decodable, Identifiable, Hashable {
     var id: String
     var title: String
 }
-
 
 struct USPhoto: Decodable, Hashable {
     let id: String
@@ -12,8 +13,6 @@ struct USPhoto: Decodable, Hashable {
     let height: Int
     let user: USUser
     let urls: USUrls
-    
-    
 }
 
 struct USSearch: Decodable, Hashable {

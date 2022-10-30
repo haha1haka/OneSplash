@@ -19,24 +19,17 @@ class AlbumViewController: BaseViewController {
 extension AlbumViewController {
     
     func configureCollectionViewDataSource() {
-        let headerCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell,String> { cell, indexPath, itemIdentifier in
-            var contentConfiguration = UIListContentConfiguration.valueCell()
-            cell.contentConfiguration = contentConfiguration
-            cell.accessories = [.outlineDisclosure()]
-        }
         
         
         let CellRegistration = UICollectionView.CellRegistration<PhotoCell,String> { cell, indexPath, itemIdentifier in
-            
+            cell.label.text = itemIdentifier.description
         }
         
         collectionViewDataSource = UICollectionViewDiffableDataSource<Int, String>(collectionView: selfView.collectionView) {
             collectionView, indexPath, itemIdentifier in
-            if indexPath.item == 0 {
-                return collectionView.dequeueConfiguredReusableCell(using: headerCellRegistration, for: indexPath, item: itemIdentifier)
-            } else {
-                return collectionView.dequeueConfiguredReusableCell(using: CellRegistration, for: indexPath, item: itemIdentifier)
-            }
+            let cell = collectionView.dequeueConfiguredReusableCell(using: CellRegistration, for: indexPath, item: itemIdentifier)
+            return cell
+            
         }
         
     }
@@ -44,7 +37,7 @@ extension AlbumViewController {
     func applySnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Int, String>()
         snapshot.appendSections([0])
-        snapshot.appendItems(["저장한 사진", "1", "2", "3"])
+        snapshot.appendItems(["1", "2", "3", "4", "5", "6", "7"])
         collectionViewDataSource.apply(snapshot)
         
     }

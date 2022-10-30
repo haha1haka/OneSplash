@@ -53,7 +53,7 @@ extension PhotoDetailViewController {
 extension PhotoDetailViewController {
     /*
      - 받아온 pageIndex 이용해서 id 값 접근 --> 램에 저장 하기
-     - 
+     -
      */
     @objc
     func ButtonClick() {

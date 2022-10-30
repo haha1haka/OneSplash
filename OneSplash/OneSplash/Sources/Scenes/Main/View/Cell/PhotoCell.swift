@@ -33,7 +33,7 @@ class PhotoCell: BaseCollectionViewCell {
 
 
     override func configureHierarchy() {
-        //self.backgroundColor = .black
+        self.backgroundColor = .tintColor
         contentView.addSubview(imageView)
         imageView.addSubview(label)
     }
@@ -46,7 +46,7 @@ class PhotoCell: BaseCollectionViewCell {
             $0.leading.equalTo(imageView.snp.leading).offset(10)
             $0.bottom.equalTo(imageView.snp.bottom).inset(10)
         }
-        self.layer.cornerRadius = 8
+        //self.layer.cornerRadius = 8
     }
     
     func configureAttributes(with item: USPhoto, labelIsEmpty: Bool = false) {
