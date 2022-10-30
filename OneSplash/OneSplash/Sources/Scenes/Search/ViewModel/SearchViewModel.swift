@@ -3,8 +3,6 @@ import Foundation
 class SearchViewModel {
     
     
-    
-    
     var searchPhotosDataStrore: Observable<USSearch?> = Observable(nil)
     var searchCollectionsDataStore: Observable<USCollection?> = Observable(nil)
     

@@ -1,6 +1,11 @@
 import UIKit
 
 
+enum PhotoDetailType {
+    case addPhoto
+    case deletePhoto
+}
+
 class PhotoDetailViewController: BaseViewController {
     
     let selfView = PhotoDetailView()
@@ -10,7 +15,7 @@ class PhotoDetailViewController: BaseViewController {
     let viewModel = PhotoDetailViewModel()
     
     
-    
+    var photoDetailType = PhotoDetailType.addPhoto
     // ⭐️ 뷰모델로 해보기
     var currentPhotoItemIndex: Int?
     
@@ -26,7 +31,7 @@ extension PhotoDetailViewController {
         
         configureDataSource()
         
-        viewModel.PhotosDataStore.bind { [weak self] photos in
+        viewModel.mainPhotosDataStore.bind { [weak self] photos in
             guard let self = self else { return }
             guard let photos = photos else { return }
             var snapshot = self.collectionViewDataSource.snapshot()
@@ -47,6 +52,15 @@ extension PhotoDetailViewController {
         selfView.floatingButton.addTarget(self, action: #selector(saveButtonClicked), for: UIControl.Event.touchUpInside)
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        switch photoDetailType {
+        case .addPhoto:
+            selfView.floatingButton.setImage(UIImage(systemName: "tray.and.arrow.down"), for: .normal)
+        case .deletePhoto:
+            selfView.floatingButton.setImage(UIImage(systemName: "trash"), for: .normal)
+        }
+    }
 }
 
 
@@ -62,11 +76,11 @@ extension PhotoDetailViewController {
     func saveButtonClicked() {
         
         //print("🌞\(selfView.pageIndex)")
-        guard let photos = viewModel.PhotosDataStore.value else { return }
+        guard let photos = viewModel.mainPhotosDataStore.value else { return }
         guard let pageIndex = selfView.pageIndex else { return }
         
         
-        //⭐️ 질문하기
+        //⭐️ 질문하기 잭
         let currentUSItem = photos[pageIndex]
         
         var downloadedImage: UIImage?
@@ -87,9 +101,6 @@ extension PhotoDetailViewController {
             }
         }.resume()
 
-        
-        
-        
         
 
     }

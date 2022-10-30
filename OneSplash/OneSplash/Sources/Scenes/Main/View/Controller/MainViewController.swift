@@ -67,10 +67,15 @@ extension MainViewController {
         viewModel.topicPhotosDataStore.bind { [weak self] topicPhotos in
             guard let self = self else { return }
             var snapshot = self.dataSource.snapshot()
-            snapshot.deleteSections(["Topic'sPhotos"])
+            //⭐️ 메모리 너무 올라감 잭
+            if !snapshot.sectionIdentifiers.isEmpty {
+                snapshot.deleteSections(["Topic'sPhotos"])
+                snapshot.deleteItems(topicPhotos.map(SectionItem.topicPhoto))
+                
+            }
             snapshot.appendSections(["Topic'sPhotos"])
             snapshot.appendItems(topicPhotos.map(SectionItem.topicPhoto))
-            self.dataSource.apply(snapshot, animatingDifferences: true)
+            self.dataSource.apply(snapshot)
         }
         
         
@@ -147,7 +152,7 @@ extension MainViewController: UICollectionViewDelegate {
             
             
             
-            photoDetailViewController.viewModel.PhotosDataStore.value = self.viewModel.topicPhotosDataStore.value
+            photoDetailViewController.viewModel.mainPhotosDataStore.value = self.viewModel.topicPhotosDataStore.value
             
             
             transition(photoDetailViewController, transitionStyle: .push)

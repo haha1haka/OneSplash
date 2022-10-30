@@ -2,7 +2,9 @@ import Foundation
 
 class PhotoDetailViewModel {
     
-    var PhotosDataStore: Observable<[USPhoto]?> = Observable(nil)
+    var mainPhotosDataStore: Observable<[USPhoto]?> = Observable(nil)
+    var searchPhotosDataSource: Observable<[USPhoto]?> = Observable(nil)
+    var albumPhotosDataStore: Observable<[USPhoto]?> = Observable(nil)
     
     let photoRepository = PhotoRepository()
     

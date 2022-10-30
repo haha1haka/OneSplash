@@ -53,7 +53,7 @@ class SearchViewContoller: BaseViewController {
     override func configureInit() {
         navigationItem.searchController = searchController
         print("SearchViewController")
-        
+        selfView.collectionView.delegate = self
         configurePhotoDataSource()
     }
 
@@ -178,6 +178,7 @@ extension SearchViewContoller: UISearchBarDelegate {
         case 0:
             selfView.scopeType = .photos
             configurePhotoDataSource()
+            configurePhotoDataSource()
             
             
             print(selectedScope)
@@ -200,3 +201,21 @@ extension SearchViewContoller: UISearchBarDelegate {
 
 }
 
+extension SearchViewContoller: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedItem = searchTypeDataSource.itemIdentifier(for: indexPath)
+        
+        let photoDetailViewController = PhotoDetailViewController()
+        
+        //✅selected Item 의 index 넘겨서 다음 VC 의 viewdidload 에서 scrolltoItem
+        photoDetailViewController.currentPhotoItemIndex = indexPath.item
+        
+        
+        
+        photoDetailViewController.viewModel.mainPhotosDataStore.value = self.viewModel.searchPhotosDataStrore.value?.results
+        
+        
+        transition(photoDetailViewController, transitionStyle: .push)
+
+    }
+}

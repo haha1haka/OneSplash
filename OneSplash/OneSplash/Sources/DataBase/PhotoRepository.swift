@@ -22,6 +22,20 @@ class PhotoRepository: PhotoDataBaseRepository {
         }
     }
     
+    func deletePhoto(item: USPhoto) {
+        do {
+            try database.write {
+                database.delete(item)
+            }
+        } catch let error {
+            print(error)
+        }
+    }
+    
+    
+    
+    
+    
     func fetchPhoto() -> Results<USPhoto> {
         return database.objects(USPhoto.self)
     }

@@ -2,10 +2,11 @@ import Foundation
 
 class AlbumViewModel {
     let photoRepository = PhotoRepository()
-    var photoList: Observable<[USPhoto]> = Observable([])
+    var albumPhotoDataStore: Observable<[USPhoto]> = Observable([])
+    
     
     func fetchPhoto() {
-        self.photoList.value = photoRepository.fetchPhoto().map{$0}
+        self.albumPhotoDataStore.value = photoRepository.fetchPhoto().map{$0}
     }
     
 }

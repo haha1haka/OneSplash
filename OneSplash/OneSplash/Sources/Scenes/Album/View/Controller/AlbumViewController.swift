@@ -13,14 +13,10 @@ class AlbumViewController: BaseViewController {
     override func configureInit() {
         configureCollectionViewDataSource()
         //applySnapshot()
-    }
-}
-extension AlbumViewController {
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        viewModel.fetchPhoto()
         
-        viewModel.photoList.bind { [weak self] photoList in
+        selfView.collectionView.delegate = self
+        
+        viewModel.albumPhotoDataStore.bind { [weak self] photoList in
             guard let self = self else { return }
             var snapshot = NSDiffableDataSourceSnapshot<Int, USPhoto>()
             
@@ -28,6 +24,14 @@ extension AlbumViewController {
             snapshot.appendItems(photoList)
             self.collectionViewDataSource.apply(snapshot)
         }
+    }
+}
+extension AlbumViewController {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.fetchPhoto()
+        
+
     }
 }
 
@@ -53,6 +57,29 @@ extension AlbumViewController {
 
     func applySnapshot() {
 
+        
+    }
+}
+
+extension AlbumViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
+        
+        
+        var selectedItem = collectionViewDataSource.itemIdentifier(for: indexPath)
+        
+        let photoDetailViewController = PhotoDetailViewController()
+        
+        
+        photoDetailViewController.currentPhotoItemIndex = indexPath.item
+        
+        photoDetailViewController.photoDetailType = .deletePhoto
+        
+        photoDetailViewController.viewModel.mainPhotosDataStore.value = self.viewModel.albumPhotoDataStore.value
+        
+        
+        transition(photoDetailViewController, transitionStyle: .push)
         
     }
 }
