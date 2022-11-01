@@ -1,4 +1,6 @@
 import UIKit
+import RxSwift
+import RxCocoa
 
 
 //⭐️ 연관값 달면 Hashable 해야함
@@ -22,6 +24,7 @@ class SearchViewContoller: BaseViewController {
         view  = selfView
     }
     
+    let disposeBag = DisposeBag()
     
     typealias NewSnapshot = NSDiffableDataSourceSnapshot<String, USPhoto>
     
@@ -68,19 +71,21 @@ extension SearchViewContoller {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        viewModel.searchPhotosDataStrore.bind { [weak self] usSearch in
-            guard let self = self else { return }
-            guard let usSearch = usSearch else { return } //[USSearch]
-            print("🧨\(usSearch)")
-            
-            var snapshot = NewSnapshot()
-            snapshot.deleteSections(["Results"])
-            snapshot.appendSections(["Results"])
-            snapshot.appendItems(usSearch.results)
-            self.searchTypeDataSource.apply(snapshot)
-        }
+        viewModel.searchPhotosDataStrore
+            .withUnretained(self)
+            .bind(onNext: { vc, usSearch in
+                
+                print("🧨\(usSearch)")
+                
+                var snapshot = NewSnapshot()
+                snapshot.deleteSections(["Results"])
+                snapshot.appendSections(["Results"])
+                snapshot.appendItems(usSearch.results)
+                vc.searchTypeDataSource.apply(snapshot)
+                
+            })
+            .disposed(by: disposeBag)
+
         
         
         viewModel.searchCollectionsDataStore.bind { [weak self] usCollection in
@@ -211,8 +216,14 @@ extension SearchViewContoller: UICollectionViewDelegate {
         photoDetailViewController.currentPhotoItemIndex = indexPath.item
         
         
+        let a = viewModel.searchPhotosDataStrore
         
-        photoDetailViewController.viewModel.mainPhotosDataStore.value = self.viewModel.searchPhotosDataStrore.value?.results
+        photoDetailViewController.viewModel.mainPhotosDataStore
+            .onNext(try! viewModel.searchPhotosDataStrore.value().results)
+            
+        
+        
+        // = self.viewModel.searchPhotosDataStrore.value?.results
         
         
         transition(photoDetailViewController, transitionStyle: .push)

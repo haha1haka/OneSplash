@@ -1,9 +1,11 @@
 import Foundation
+import RxSwift
+import RxCocoa
 
 class SearchViewModel {
     
     
-    var searchPhotosDataStrore: Observable<USSearch?> = Observable(nil)
+    var searchPhotosDataStrore = BehaviorSubject<USSearch>(value: USSearch(total: 0, totalPages: 0, results: []))
     var searchCollectionsDataStore: Observable<USCollection?> = Observable(nil)
     
     
@@ -12,7 +14,8 @@ class SearchViewModel {
     func requestSearchPhotos(query: String) {
         UnsplashService.shared.requestSearchPhotos(query: query) { [weak self] usSearch in
             guard let self = self else { return }
-            self.searchPhotosDataStrore.value = usSearch // USSearch
+            self.searchPhotosDataStrore
+                .onNext(usSearch)
             //print("📕  \(usSearch.results)")
         }
     }

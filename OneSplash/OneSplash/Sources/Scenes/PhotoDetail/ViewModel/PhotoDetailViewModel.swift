@@ -1,10 +1,15 @@
 import Foundation
+import RxSwift
+import RxCocoa
 
 class PhotoDetailViewModel {
     
-    var mainPhotosDataStore: Observable<[USPhoto]?> = Observable(nil)
+    var mainPhotosDataStore = BehaviorSubject<[USPhoto]>(value: [])
+    
     var searchPhotosDataSource: Observable<[USPhoto]?> = Observable(nil)
     var albumPhotosDataStore: Observable<[USPhoto]?> = Observable(nil)
+    
+    var currentIndex = BehaviorSubject<Int>(value: 0)
     
     let photoRepository = PhotoRepository()
     

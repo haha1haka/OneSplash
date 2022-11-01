@@ -31,23 +31,42 @@ extension PhotoDetailViewController {
         
         configureDataSource()
         
-        viewModel.mainPhotosDataStore.bind { [weak self] photos in
-            guard let self = self else { return }
-            guard let photos = photos else { return }
-            var snapshot = self.collectionViewDataSource.snapshot()
-            if !snapshot.sectionIdentifiers.isEmpty {
-                snapshot.deleteSections(["main"])
-            }
-            snapshot.appendSections(["main"])
-            snapshot.appendItems(photos)
-            self.collectionViewDataSource.apply(snapshot) { [weak self] in
-                guard let self = self else { return }
-                guard let currentPhotoItemIndex = self.currentPhotoItemIndex else { return }
-                let indexPath = IndexPath(item: currentPhotoItemIndex, section: 0)
-                self.selfView.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
-            }
-            
-        }
+//        viewModel.mainPhotosDataStore.bind { [weak self] photos in
+//            guard let self = self else { return }
+//            guard let photos = photos else { return }
+//            var snapshot = self.collectionViewDataSource.snapshot()
+//            if !snapshot.sectionIdentifiers.isEmpty {
+//                snapshot.deleteSections(["main"])
+//            }
+//            snapshot.appendSections(["main"])
+//            snapshot.appendItems(photos)
+//            self.collectionViewDataSource.apply(snapshot) { [weak self] in
+//                guard let self = self else { return }
+//                guard let currentPhotoItemIndex = self.currentPhotoItemIndex else { return }
+//                let indexPath = IndexPath(item: currentPhotoItemIndex, section: 0)
+//                self.selfView.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+//            }
+//
+//        }
+        
+        viewModel.mainPhotosDataStore
+            .withUnretained(self)
+            .bind(onNext: { vc, photos in
+                var snapshot = self.collectionViewDataSource.snapshot()
+                if !snapshot.sectionIdentifiers.isEmpty {
+                    snapshot.deleteSections(["main"])
+                }
+                snapshot.appendSections(["main"])
+                snapshot.appendItems(photos)
+                vc.collectionViewDataSource.apply(snapshot) { [weak self] in
+                    guard let self = self else { return }
+                    guard let currentPhotoItemIndex = self.currentPhotoItemIndex else { return }
+                    let indexPath = IndexPath(item: currentPhotoItemIndex, section: 0)
+                    vc.selfView.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+                }
+                
+                
+            })
         
         selfView.floatingButton.addTarget(self, action: #selector(saveButtonClicked), for: UIControl.Event.touchUpInside)
         
@@ -76,7 +95,8 @@ extension PhotoDetailViewController {
     func saveButtonClicked() {
         
         //print("🌞\(selfView.pageIndex)")
-        guard let photos = viewModel.mainPhotosDataStore.value else { return }
+        
+        guard let photos = try? viewModel.mainPhotosDataStore.value() else { return }
         guard let pageIndex = selfView.pageIndex else { return }
         
         

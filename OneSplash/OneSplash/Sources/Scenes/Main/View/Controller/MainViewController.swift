@@ -1,4 +1,6 @@
 import UIKit
+import RxSwift
+import RxCocoa
 
 //enum Section: Int, CaseIterable {
 //    case topic, pictures
@@ -27,7 +29,7 @@ class MainViewController: BaseViewController {
         case topicPhoto(USPhoto)
     }
     
-    
+    let disposeBag = DisposeBag()
     
     typealias Datasource = UICollectionViewDiffableDataSource<String, SectionItem>
     typealias topicCellRegistration = UICollectionView.CellRegistration<TopicCell, USTopic>
@@ -35,6 +37,7 @@ class MainViewController: BaseViewController {
     typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<HeaderView>
     
     var dataSource: Datasource!
+    
     
     
     let viewModel = MainViewModel()
@@ -54,30 +57,58 @@ extension MainViewController {
         
         viewModel.requestTopic()
         
-        viewModel.topicDataStore.bind { [weak self] topics in // [USTopic]
-            print("🥶  \(topics)")
-            guard let self = self else { return }
+//        viewModel.topicDataStore.bind { [weak self] topics in // [USTopic]
+//            print("🥶  \(topics)")
+//            guard let self = self else { return }
+//            var snapshot = NSDiffableDataSourceSnapshot<String, SectionItem>()
+//            snapshot.appendSections(["Topics"])
+//            snapshot.appendItems(topics.map(SectionItem.topic))
+//            self.dataSource.apply(snapshot)
+//        }
+        
+        viewModel.topicDataStore
+            .withUnretained(self)
+            .bind(onNext: { vc, ustopics in
+            print("🥶  \(ustopics)")
+            
             var snapshot = NSDiffableDataSourceSnapshot<String, SectionItem>()
             snapshot.appendSections(["Topics"])
-            snapshot.appendItems(topics.map(SectionItem.topic))
-            self.dataSource.apply(snapshot)
-        }
+            snapshot.appendItems(ustopics.map(SectionItem.topic))
+            vc.dataSource.apply(snapshot)
+        })
+            .disposed(by: disposeBag)
+            
         
         
-        viewModel.topicPhotosDataStore.bind { [weak self] topicPhotos in
-            guard let self = self else { return }
-            var snapshot = self.dataSource.snapshot()
-            //⭐️ 메모리 너무 올라감 잭
-            if !snapshot.sectionIdentifiers.isEmpty {
-                snapshot.deleteSections(["Topic'sPhotos"])
-                snapshot.deleteItems(topicPhotos.map(SectionItem.topicPhoto))
-                
-            }
-            snapshot.appendSections(["Topic'sPhotos"])
-            snapshot.appendItems(topicPhotos.map(SectionItem.topicPhoto))
-            self.dataSource.apply(snapshot)
-        }
+//        viewModel.topicPhotosDataStore.bind { [weak self] topicPhotos in
+//            guard let self = self else { return }
+//            var snapshot = self.dataSource.snapshot()
+//            //⭐️ 메모리 너무 올라감 잭
+//            if !snapshot.sectionIdentifiers.isEmpty {
+//                snapshot.deleteSections(["Topic'sPhotos"])
+//                snapshot.deleteItems(topicPhotos.map(SectionItem.topicPhoto))
+//
+//            }
+//            snapshot.appendSections(["Topic'sPhotos"])
+//            snapshot.appendItems(topicPhotos.map(SectionItem.topicPhoto))
+//            self.dataSource.apply(snapshot)
+//        }
         
+        viewModel.topicPhotosDataStore
+            .withUnretained(self)
+            .bind(onNext: { vc, unTopicPhotos in
+                var snapshot = self.dataSource.snapshot()
+                //⭐️ 메모리 너무 올라감 잭
+                if !snapshot.sectionIdentifiers.isEmpty {
+                    snapshot.deleteSections(["Topic'sPhotos"])
+                    snapshot.deleteItems(unTopicPhotos.map(SectionItem.topicPhoto))
+                }
+                snapshot.appendSections(["Topic'sPhotos"])
+                snapshot.appendItems(unTopicPhotos.map(SectionItem.topicPhoto))
+                vc.dataSource.apply(snapshot)
+
+            })
+            .disposed(by: disposeBag)
         
         
     }
@@ -153,9 +184,15 @@ extension MainViewController: UICollectionViewDelegate {
             //✅selected Item 의 index 넘겨서 다음 VC 의 viewdidload 에서 scrolltoItem 
             photoDetailViewController.currentPhotoItemIndex = indexPath.item
             
+            photoDetailViewController.viewModel.currentIndex
+                .onNext(indexPath.item)
             
-            
-            photoDetailViewController.viewModel.mainPhotosDataStore.value = self.viewModel.topicPhotosDataStore.value
+            photoDetailViewController.viewModel.mainPhotosDataStore
+                .onNext(try! viewModel.topicPhotosDataStore.value())
+                
+                    
+                    
+                
             
             
             transition(photoDetailViewController, transitionStyle: .push)

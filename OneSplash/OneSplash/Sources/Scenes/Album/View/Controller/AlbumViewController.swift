@@ -76,7 +76,11 @@ extension AlbumViewController: UICollectionViewDelegate {
         
         photoDetailViewController.photoDetailType = .deletePhoto
         
-        photoDetailViewController.viewModel.mainPhotosDataStore.value = self.viewModel.albumPhotoDataStore.value
+        photoDetailViewController.viewModel.mainPhotosDataStore
+            .onNext(try! viewModel.albumPhotoDataStore.value())
+            
+            
+            //.value = self.viewModel.albumPhotoDataStore.value
         
         
         transition(photoDetailViewController, transitionStyle: .push)
