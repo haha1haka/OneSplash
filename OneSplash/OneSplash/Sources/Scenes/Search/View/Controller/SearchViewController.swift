@@ -178,7 +178,7 @@ extension SearchViewContoller: UISearchBarDelegate {
         case 0:
             selfView.scopeType = .photos
             configurePhotoDataSource()
-            configurePhotoDataSource()
+            
             
             
             print(selectedScope)

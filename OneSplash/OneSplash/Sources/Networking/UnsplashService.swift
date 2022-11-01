@@ -11,7 +11,7 @@ class UnsplashService {
         "Authorization": "Client-ID \(UnsplashAPIKey.appKey)"
     ]
     
-    func requestTopics(onSuccess: @escaping (([USTopic]) -> Void),onFailure: @escaping ((USError) -> Void)) {
+    func requestTopics(onSuccess: @escaping (([USTopic]) -> Void), onFailure: @escaping ((USError) -> Void)) {
         var urlComponents = URLComponents(string: UnsplashEndPoint.baseURL)
         urlComponents?.path = UnsplashEndPoint.topics.path
         urlComponents?.queryItems = [

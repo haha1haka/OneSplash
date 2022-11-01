@@ -101,11 +101,14 @@ extension MainViewController {
         let topicCellRegistration = topicCellRegistration { cell, indexPath, itemIdentifier in
             cell.configureAttributes(with: itemIdentifier)
         }
+        
+        
         let topicPhotoCellRegistraion = topicPhotoCellRegistration { cell, indexPath, itemIdentifier in
             cell.configureAttributes(with: itemIdentifier)
+            
         }
         
-        return Datasource(collectionView: selfView.collectionView) { collectionView, indexPath, itemIdentifier in
+        return UICollectionViewDiffableDataSource<String, SectionItem>(collectionView: selfView.collectionView) { collectionView, indexPath, itemIdentifier in
             switch itemIdentifier {
             case .topic(let usTopic):
                 let cell = self.selfView.collectionView.dequeueConfiguredReusableCell(using: topicCellRegistration, for: indexPath, item: usTopic)

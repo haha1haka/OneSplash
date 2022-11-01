@@ -33,7 +33,7 @@ class PhotoCell: BaseCollectionViewCell {
 
 
     override func configureHierarchy() {
-        self.backgroundColor = .tintColor
+//        self.backgroundColor = .tintColor
         contentView.addSubview(imageView)
         imageView.addSubview(label)
     }
