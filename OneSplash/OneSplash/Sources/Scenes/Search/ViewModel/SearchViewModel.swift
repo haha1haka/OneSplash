@@ -11,6 +11,8 @@ class SearchViewModel {
     
     
     
+    
+    
     func requestSearchPhotos(query: String) {
         UnsplashService.shared.requestSearchPhotos(query: query) { [weak self] usSearch in
             guard let self = self else { return }

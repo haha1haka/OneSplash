@@ -102,6 +102,15 @@ extension SearchViewContoller {
 
         }
         
+        searchController.searchBar.rx.text.orEmpty
+            .debounce(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
+            .bind { value in
+                print("💰\(value)")
+            }
+        
+        
+        
+        
         
     }
 }
