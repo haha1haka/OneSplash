@@ -14,20 +14,30 @@ class SearchViewModel {
     
     
     func requestSearchPhotos(query: String) {
-        UnsplashService.shared.requestSearchPhotos(query: query) { [weak self] usSearch in
-            guard let self = self else { return }
-            self.searchPhotosDataStrore
-                .onNext(usSearch)
-            //print("📕  \(usSearch.results)")
+        let api = UnsplashRouter.search(query: query)
+        UnsplashService.shared.request(type: USSearch.self, path: api.path, queryItems: api.queryItems, httpMethod: api.httpMethod, headers: api.headers) { [weak self] searchPhotos in
+            switch searchPhotos {
+            case .success(let data):
+                self?.searchPhotosDataStrore.onNext(data)
+            case .failure:
+                return
+            }
         }
     }
     
+    
+    
+    
+    
+    
+    
+    
     func requestSearchCollectionsPhotos() {
-        UnsplashService.shared.requestSearchCollections { [weak self] usColletion in
-            guard let self = self else { return }
-            self.searchCollectionsDataStore.value = usColletion
-            print("😈😈\(usColletion)")
-        }
+//        UnsplashService.shared.requestSearchCollections { [weak self] usColletion in
+//            guard let self = self else { return }
+//            self.searchCollectionsDataStore.value = usColletion
+//            print("😈😈\(usColletion)")
+//        }
     }
     
     

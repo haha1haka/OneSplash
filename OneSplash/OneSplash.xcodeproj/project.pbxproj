@@ -36,6 +36,7 @@
 		F43CC44A290173B600224588 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43CC449290173B600224588 /* HeaderView.swift */; };
 		F4522985291127B800A8F7B4 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F4522984291127B800A8F7B4 /* RxCocoa */; };
 		F4522987291127B800A8F7B4 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F4522986291127B800A8F7B4 /* RxSwift */; };
+		F4599BF7291527E400C78671 /* UnsplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4599BF6291527E400C78671 /* UnsplashRouter.swift */; };
 		F4649B44290D0E38000E45C3 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F4649B43290D0E38000E45C3 /* Realm */; };
 		F4649B46290D0E38000E45C3 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F4649B45290D0E38000E45C3 /* RealmSwift */; };
 		F46B162C29028226001984C0 /* Unsplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46B162B29028226001984C0 /* Unsplash.swift */; };
@@ -83,6 +84,7 @@
 		F43CC442290138E100224588 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		F43CC444290138E600224588 /* TopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
 		F43CC449290173B600224588 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		F4599BF6291527E400C78671 /* UnsplashRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashRouter.swift; sourceTree = "<group>"; };
 		F46B162B29028226001984C0 /* Unsplash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unsplash.swift; sourceTree = "<group>"; };
 		F46B162D29028271001984C0 /* UnsplashAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashAPIKey.swift; sourceTree = "<group>"; };
 		F46B162F29028296001984C0 /* UnsplashEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashEndPoint.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				F46B162B29028226001984C0 /* Unsplash.swift */,
 				F4C4971E29028486004E4FFD /* HTTPMethod.swift */,
 				F4ACE8D229123D0F00C3980D /* NetworkError.swift */,
+				F4599BF6291527E400C78671 /* UnsplashRouter.swift */,
 				F46B162D29028271001984C0 /* UnsplashAPIKey.swift */,
 				F46B1631290282AD001984C0 /* UnsplashService.swift */,
 				F46B162F29028296001984C0 /* UnsplashEndPoint.swift */,
@@ -573,6 +576,7 @@
 				F41013C92904E4640035FE16 /* PhotoCell.swift in Sources */,
 				F420B8512905587500809EBD /* TabBarController.swift in Sources */,
 				F420B8592905594800809EBD /* AlbumView.swift in Sources */,
+				F4599BF7291527E400C78671 /* UnsplashRouter.swift in Sources */,
 				F43CC44A290173B600224588 /* HeaderView.swift in Sources */,
 				F420B853290558E500809EBD /* SearchViewController.swift in Sources */,
 				F43C15EB29012BAB00E9C151 /* SceneDelegate.swift in Sources */,

@@ -7,6 +7,7 @@ protocol PhotoDataBaseRepository {
     func fetchPhoto() -> Results<USPhoto>
 }
 
+
 class PhotoRepository: PhotoDataBaseRepository {
     
     let database = try! Realm()

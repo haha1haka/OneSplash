@@ -176,7 +176,7 @@ extension MainViewController: UICollectionViewDelegate {
         switch sectionItem {
             
         case .topic(let usTopic):
-            return viewModel.requestTopicPhotos(form: usTopic)
+            return viewModel.requestTopicPhotos(from: usTopic)
             
         case .topicPhoto(_):
             let photoDetailViewController = PhotoDetailViewController()
