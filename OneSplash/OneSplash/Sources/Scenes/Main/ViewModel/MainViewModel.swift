@@ -2,7 +2,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class MainViewModel {
+final class MainViewModel {
     
     var topicDataStore = PublishSubject<[USTopic]>()
     var topicPhotosDataStore = BehaviorSubject<[USPhoto]>(value: [])

@@ -16,9 +16,9 @@ import RxCocoa
 //
 //}
 
-class MainViewController: BaseViewController {
+final class MainViewController: BaseViewController {
     
-    let selfView = MainView()
+    private let selfView = MainView()
     
     override func loadView() {
         view = selfView
@@ -29,14 +29,14 @@ class MainViewController: BaseViewController {
         case topicPhoto(USPhoto)
     }
     
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
     typealias Datasource = UICollectionViewDiffableDataSource<String, SectionItem>
     typealias topicCellRegistration = UICollectionView.CellRegistration<TopicCell, USTopic>
     typealias topicPhotoCellRegistration = UICollectionView.CellRegistration<PhotoCell, USPhoto>
     typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<HeaderView>
     
-    var dataSource: Datasource!
+    private var dataSource: Datasource!
     
     
     
@@ -119,7 +119,7 @@ extension MainViewController {
 
 extension MainViewController {
     
-    func configureCollectionViewDataSource(){
+    private func configureCollectionViewDataSource() {
         dataSource = configureCellDataSource()
         dataSource.supplementaryViewProvider = configureSupplementaryItemDataSource()
     }
@@ -127,7 +127,7 @@ extension MainViewController {
 
 extension MainViewController {
     
-    func configureCellDataSource() -> Datasource {
+    private func configureCellDataSource() -> Datasource {
         
         let topicCellRegistration = topicCellRegistration { cell, indexPath, itemIdentifier in
             cell.configureAttributes(with: itemIdentifier)
@@ -151,7 +151,7 @@ extension MainViewController {
         }
     }
     
-    func configureSupplementaryItemDataSource() -> Datasource.SupplementaryViewProvider {
+    private func configureSupplementaryItemDataSource() -> Datasource.SupplementaryViewProvider {
         let headerRegistration = HeaderRegistration(elementKind: UICollectionView.elementKindSectionHeader) { supplementaryView, elementKind, indexPath in
             guard let sectionIdentifier = self.dataSource.sectionIdentifier(for: indexPath.section) else { return }
             supplementaryView.titleLabel.text = sectionIdentifier.description

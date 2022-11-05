@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-class UserCell: BaseCollectionViewCell {
+final class UserCell: BaseCollectionViewCell {
     
     let label: UILabel = {
         let view = UILabel()

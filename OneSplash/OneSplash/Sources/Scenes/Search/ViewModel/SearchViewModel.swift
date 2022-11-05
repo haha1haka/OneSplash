@@ -2,7 +2,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class SearchViewModel {
+final class SearchViewModel {
     
     
     var searchPhotosDataStrore = BehaviorSubject<USSearch>(value: USSearch(total: 0, totalPages: 0, results: []))

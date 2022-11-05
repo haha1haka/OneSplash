@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-class AlbumView: BaseView {
+final class AlbumView: BaseView {
     
     lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
@@ -22,7 +22,7 @@ class AlbumView: BaseView {
     
 }
 extension AlbumView {
-    func configureCollectionViewLayout() -> UICollectionViewLayout {
+    private func configureCollectionViewLayout() -> UICollectionViewLayout {
     
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                               heightDimension: .fractionalHeight(1.0))

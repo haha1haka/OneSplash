@@ -1,6 +1,6 @@
 import UIKit
 
-class TabBarController: UITabBarController {
+final class TabBarController: UITabBarController {
     
     
     let mainViewController = UINavigationController(rootViewController: MainViewController())
@@ -17,7 +17,5 @@ class TabBarController: UITabBarController {
         albumViewController.tabBarItem.image = UIImage(systemName: "person.crop.circle.fill")
         viewControllers = [mainViewController, searchViewController, albumViewController]
     }
-    
-    
-    
+ 
 }

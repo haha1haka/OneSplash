@@ -4,7 +4,7 @@ import SnapKit
 
 
 
-class PhotoDetailView: BaseView {
+final class PhotoDetailView: BaseView {
     
     
     lazy var collectionView: UICollectionView = {
@@ -55,7 +55,7 @@ class PhotoDetailView: BaseView {
 
 
 extension PhotoDetailView {
-    func configureCollectionViewLayout() -> UICollectionViewLayout {
+    private func configureCollectionViewLayout() -> UICollectionViewLayout {
         let size = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: size)
         let sctionSize = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitem: item, count: 1)

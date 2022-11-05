@@ -41,7 +41,6 @@
 		F4649B46290D0E38000E45C3 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F4649B45290D0E38000E45C3 /* RealmSwift */; };
 		F46B162C29028226001984C0 /* Unsplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46B162B29028226001984C0 /* Unsplash.swift */; };
 		F46B162E29028271001984C0 /* UnsplashAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46B162D29028271001984C0 /* UnsplashAPIKey.swift */; };
-		F46B163029028296001984C0 /* UnsplashEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46B162F29028296001984C0 /* UnsplashEndPoint.swift */; };
 		F46B1632290282AD001984C0 /* UnsplashService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46B1631290282AD001984C0 /* UnsplashService.swift */; };
 		F4893637290CB4B3004CB39F /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4893636290CB4B3004CB39F /* PhotoDetailViewController.swift */; };
 		F4893639290CB4EE004CB39F /* PhotoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4893638290CB4EE004CB39F /* PhotoDetailView.swift */; };
@@ -87,7 +86,6 @@
 		F4599BF6291527E400C78671 /* UnsplashRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashRouter.swift; sourceTree = "<group>"; };
 		F46B162B29028226001984C0 /* Unsplash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unsplash.swift; sourceTree = "<group>"; };
 		F46B162D29028271001984C0 /* UnsplashAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashAPIKey.swift; sourceTree = "<group>"; };
-		F46B162F29028296001984C0 /* UnsplashEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashEndPoint.swift; sourceTree = "<group>"; };
 		F46B1631290282AD001984C0 /* UnsplashService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashService.swift; sourceTree = "<group>"; };
 		F4893636290CB4B3004CB39F /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		F4893638290CB4EE004CB39F /* PhotoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailView.swift; sourceTree = "<group>"; };
@@ -301,7 +299,6 @@
 				F4599BF6291527E400C78671 /* UnsplashRouter.swift */,
 				F46B162D29028271001984C0 /* UnsplashAPIKey.swift */,
 				F46B1631290282AD001984C0 /* UnsplashService.swift */,
-				F46B162F29028296001984C0 /* UnsplashEndPoint.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -562,7 +559,6 @@
 				F48B4A3D290D3DAE002D7EAC /* Photo.swift in Sources */,
 				F400608B290821C3000EDAF5 /* SearchResultViewController.swift in Sources */,
 				F43CC445290138E600224588 /* TopicCell.swift in Sources */,
-				F46B163029028296001984C0 /* UnsplashEndPoint.swift in Sources */,
 				F43CC4372901378800224588 /* MainViewController.swift in Sources */,
 				F41F6A40290B96D700F9B48F /* CollectionCell.swift in Sources */,
 				F42B10142903957D006162D1 /* MainViewModel.swift in Sources */,

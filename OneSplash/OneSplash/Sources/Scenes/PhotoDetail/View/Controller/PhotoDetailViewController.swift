@@ -6,11 +6,11 @@ enum PhotoDetailType {
     case deletePhoto
 }
 
-class PhotoDetailViewController: BaseViewController {
+final class PhotoDetailViewController: BaseViewController {
     
-    let selfView = PhotoDetailView()
+    private let selfView = PhotoDetailView()
     
-    var collectionViewDataSource: UICollectionViewDiffableDataSource<String, USPhoto>!
+    private var collectionViewDataSource: UICollectionViewDiffableDataSource<String, USPhoto>!
     
     let viewModel = PhotoDetailViewModel()
     
@@ -133,7 +133,7 @@ extension PhotoDetailViewController {
 
 // MARK: - DataSource
 extension PhotoDetailViewController {
-    func configureDataSource() {
+    private func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<PhotoCell, USPhoto> { cell, indexPath, itemIdentifier in
             cell.configureAttributes(with: itemIdentifier, labelIsEmpty: true)
         }

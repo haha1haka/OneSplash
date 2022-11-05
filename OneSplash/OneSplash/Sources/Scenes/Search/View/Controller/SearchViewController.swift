@@ -17,14 +17,14 @@ protocol SearchBarScopeIndexDelegate: AnyObject {
 }
 
 
-class SearchViewContoller: BaseViewController {
+final class SearchViewContoller: BaseViewController {
 
-    let selfView = SearchView()
+    private let selfView = SearchView()
     override func loadView() {
         view  = selfView
     }
     
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
     typealias NewSnapshot = NSDiffableDataSourceSnapshot<String, USPhoto>
     
@@ -35,12 +35,12 @@ class SearchViewContoller: BaseViewController {
     typealias CollectionsCellRegistration = UICollectionView.CellRegistration<CollectionCell, USCollection>
     
     
-    var searchTypeDataSource: USSearchDatasource!
-    var collectionTypeDataSource: USCollectionDatasource!
+    private var searchTypeDataSource: USSearchDatasource!
+    private var collectionTypeDataSource: USCollectionDatasource!
     
-    let searchResultViewController = SearchResultViewController()
+    private let searchResultViewController = SearchResultViewController()
     
-    lazy var searchController: UISearchController = {
+    private lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: searchResultViewController)
         searchController.searchBar.placeholder = "Search photos, collections, users"
         searchController.searchBar.tintColor = .label
@@ -118,7 +118,7 @@ extension SearchViewContoller {
 extension SearchViewContoller {
     
     
-    func configurePhotoDataSource() {
+    private func configurePhotoDataSource() {
         let photoCellRegistration = UICollectionView.CellRegistration<PhotoCell, USPhoto> { cell, indexPath, itemIdentifier in
             cell.configureAttributes(with: itemIdentifier)
         }
@@ -129,7 +129,7 @@ extension SearchViewContoller {
         }
     }
     
-    func configureSearchDataSource() {
+    private func configureSearchDataSource() {
         let collectionCellRegistration = UICollectionView.CellRegistration<CollectionCell, USCollection> { cell, indexPath, itemIdentifier in
             cell.configureAttributes(with: itemIdentifier)
         }

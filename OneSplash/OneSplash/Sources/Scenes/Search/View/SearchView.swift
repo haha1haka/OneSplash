@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-class SearchView: BaseView {
+final class SearchView: BaseView {
     
     lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayoutByScopeType())
@@ -26,7 +26,7 @@ class SearchView: BaseView {
 
 extension SearchView {
     //
-    func collectionViewLayoutByScopeType() -> UICollectionViewLayout {
+    private func collectionViewLayoutByScopeType() -> UICollectionViewLayout {
         print("👻dfsfs")
         switch scopeType {
         case .photos: return cofigurePhotosLayout()
@@ -36,7 +36,7 @@ extension SearchView {
     }
     
     
-    func cofigurePhotosLayout() -> UICollectionViewLayout {
+    private func cofigurePhotosLayout() -> UICollectionViewLayout {
         let collectionViewLayout = UICollectionViewCompositionalLayout(
             sectionProvider:
                 { sectionIndex, layoutEnvironment in
@@ -51,7 +51,7 @@ extension SearchView {
         return collectionViewLayout
     }
     
-    func configureCollectionsLayout() -> UICollectionViewLayout {
+    private func configureCollectionsLayout() -> UICollectionViewLayout {
         let collectionViewLayout = UICollectionViewCompositionalLayout(
             sectionProvider:
                 { sectionIndex, layoutEnvironment in
@@ -95,7 +95,7 @@ extension SearchView {
     
     
     
-    func configureUsersLayout() -> UICollectionViewLayout {
+    private func configureUsersLayout() -> UICollectionViewLayout {
         let collectionViewLayout = UICollectionViewCompositionalLayout(
             sectionProvider:
                 { sectionIndex, layoutEnvironment in

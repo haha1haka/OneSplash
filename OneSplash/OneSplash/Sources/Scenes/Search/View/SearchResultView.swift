@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-class SearchResultView: BaseView {
+final class SearchResultView: BaseView {
     
     lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
@@ -23,7 +23,7 @@ class SearchResultView: BaseView {
 
 extension SearchResultView {
     
-    func configureCollectionViewLayout() -> UICollectionViewLayout {
+    private func configureCollectionViewLayout() -> UICollectionViewLayout {
         var listConfiguration = UICollectionLayoutListConfiguration(appearance: .sidebarPlain)
         listConfiguration.headerMode = .supplementary
         return UICollectionViewCompositionalLayout.list(using: listConfiguration)

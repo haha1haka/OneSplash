@@ -5,20 +5,20 @@ enum IsFileExist {
     case no
 }
 
-class DocumentManager {
+final class DocumentManager {
     
     static let shared = DocumentManager()
     
     private init() { }
     
-    func documentDirectoryPath() -> URL? {
+    private func documentDirectoryPath() -> URL? {
         guard let documentDiretory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
             return nil
         }
         return documentDiretory
     }
     
-    func unsplashImageStoreDirectoryPath() -> URL? {
+    private func unsplashImageStoreDirectoryPath() -> URL? {
         let imageDirectory = documentDirectoryPath()?.appendingPathComponent("UnsplashImageStore")
         return imageDirectory
     }
@@ -42,7 +42,7 @@ class DocumentManager {
         }
     }
     
-    func loadImageFromDocument(fileName: String) -> UIImage? {
+    private func loadImageFromDocument(fileName: String) -> UIImage? {
         guard let imageDirectory = unsplashImageStoreDirectoryPath() else {return nil}
         let fileURL = imageDirectory.appendingPathComponent(fileName)
         let isFileExist = FileManager.default.fileExists(atPath: fileURL.path) == true ? IsFileExist.yes : IsFileExist.no
@@ -55,7 +55,7 @@ class DocumentManager {
         }
     }
     
-    func pushImage(to unsplashImageDirectory : URL,leadingPath fileName: String, image: UIImage) {
+    private func pushImage(to unsplashImageDirectory : URL,leadingPath fileName: String, image: UIImage) {
         let fileURL = unsplashImageDirectory.appendingPathComponent(fileName)
         print("File Location: \(fileURL)")
         

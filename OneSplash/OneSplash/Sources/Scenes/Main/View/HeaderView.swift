@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-class HeaderView: UICollectionReusableView {
+final class HeaderView: UICollectionReusableView {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()

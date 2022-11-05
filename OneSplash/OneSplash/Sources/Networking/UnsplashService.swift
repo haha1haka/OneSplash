@@ -1,11 +1,20 @@
 import Foundation
 
-class UnsplashService {
+final class UnsplashService {
     
     private init() { }
     
     static let shared = UnsplashService()
     
+    func requestTest() {
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        let url = URL(string: "")!
+        var urlRequest = URLRequest(url: url)
+        let download = session.downloadTask(with: urlRequest)
+        
+        
+    }
     
     func request<T: Decodable>(type: T.Type = T.self, path:String, queryItems: [URLQueryItem], httpMethod: HTTPMethod, headers: [String: String], completion: @escaping (Result<T, NetworkError>) -> Void) {
         
@@ -57,3 +66,4 @@ class UnsplashService {
             
         }.resume()
     }
+}

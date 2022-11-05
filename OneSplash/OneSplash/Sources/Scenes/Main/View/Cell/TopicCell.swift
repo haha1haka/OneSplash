@@ -1,9 +1,9 @@
 import UIKit
 import SnapKit
 
-class TopicCell: BaseCollectionViewCell {
+final class TopicCell: BaseCollectionViewCell {
     
-    let label: UILabel = {
+    private let label: UILabel = {
         let view = UILabel()
         view.textAlignment = .center
         view.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
@@ -23,6 +23,7 @@ class TopicCell: BaseCollectionViewCell {
         }
         self.layer.cornerRadius = 8
     }
+    
     func configureAttributes(with title: USTopic) {
         label.text = title.title
     }

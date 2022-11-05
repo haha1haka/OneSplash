@@ -1,14 +1,14 @@
 import UIKit
 import Kingfisher
 
-class AlbumViewController: BaseViewController {
+final class AlbumViewController: BaseViewController {
     
     let selfView = AlbumView()
     override func loadView() {
         view  = selfView
     }
-    let viewModel = AlbumViewModel()
-    var collectionViewDataSource: UICollectionViewDiffableDataSource<Int, USPhoto>!
+    private let viewModel = AlbumViewModel()
+    private var collectionViewDataSource: UICollectionViewDiffableDataSource<Int, USPhoto>!
     
     override func configureInit() {
         configureCollectionViewDataSource()
@@ -38,7 +38,7 @@ extension AlbumViewController {
 
 extension AlbumViewController {
     
-    func configureCollectionViewDataSource() {
+    private func configureCollectionViewDataSource() {
         
         
         let CellRegistration = UICollectionView.CellRegistration<PhotoCell,USPhoto> { cell, indexPath, itemIdentifier in
@@ -55,7 +55,7 @@ extension AlbumViewController {
         
     }
 
-    func applySnapshot() {
+    private func applySnapshot() {
 
         
     }

@@ -8,7 +8,7 @@ protocol PhotoDataBaseRepository {
 }
 
 
-class PhotoRepository: PhotoDataBaseRepository {
+final class PhotoRepository: PhotoDataBaseRepository {
     
     let database = try! Realm()
     

@@ -2,7 +2,7 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-class CollectionCell: BaseCollectionViewCell {
+final class CollectionCell: BaseCollectionViewCell {
     
     let imageStackView: UIStackView = {
         let view = UIStackView()

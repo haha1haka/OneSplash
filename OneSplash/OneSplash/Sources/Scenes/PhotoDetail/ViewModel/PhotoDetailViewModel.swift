@@ -2,7 +2,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class PhotoDetailViewModel {
+final class PhotoDetailViewModel {
     
     var mainPhotosDataStore = BehaviorSubject<[USPhoto]>(value: [])
     

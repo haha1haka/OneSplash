@@ -4,7 +4,7 @@ import Kingfisher
 
 
 
-class PhotoCell: BaseCollectionViewCell {
+final class PhotoCell: BaseCollectionViewCell {
     
     let imageView: UIImageView = {
         let view = UIImageView(frame: .zero)
@@ -12,9 +12,9 @@ class PhotoCell: BaseCollectionViewCell {
         return view
     }()
     
-    var photoItem: USPhoto?
+    private var photoItem: USPhoto?
 
-    let label: UILabel = {
+    private let label: UILabel = {
         let view = UILabel()
         view.textAlignment = .center
         view.font = UIFont.systemFont(ofSize: 15, weight: .semibold)

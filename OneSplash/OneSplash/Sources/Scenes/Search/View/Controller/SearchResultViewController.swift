@@ -1,6 +1,6 @@
 import UIKit
 
-class SearchResultViewController: BaseViewController {
+final class SearchResultViewController: BaseViewController {
     
     let selfView = SearchResultView()
     override func loadView() {
@@ -25,7 +25,7 @@ class SearchResultViewController: BaseViewController {
 extension SearchResultViewController {
     
     
-    func configureDataSource() {
+    private func configureDataSource() {
         
         let listCellRegistration = ListCellRegistration { cell, indexPath, itemIdentifier in
             var configuration = cell.defaultContentConfiguration()
@@ -52,7 +52,7 @@ extension SearchResultViewController {
     }
     
     
-    func applyShapShot() {
+    private func applyShapShot() {
         var snapshot = dataSource.snapshot()
         snapshot.appendSections(["🔥 Recent Search"])
         snapshot.appendItems(["1", "2","3", "4", "5"])

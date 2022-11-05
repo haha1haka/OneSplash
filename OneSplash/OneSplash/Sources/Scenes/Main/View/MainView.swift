@@ -20,7 +20,7 @@ class MainView: BaseView {
         }
     }
     
-    func configureCollectionViewLayout() -> UICollectionViewLayout {
+    private func configureCollectionViewLayout() -> UICollectionViewLayout {
         
         let configuration = UICollectionViewCompositionalLayoutConfiguration()
         
@@ -40,7 +40,7 @@ class MainView: BaseView {
     
     
     
-    func topicSection() -> NSCollectionLayoutSection {
+    private func topicSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                               heightDimension: .fractionalWidth(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -63,7 +63,7 @@ class MainView: BaseView {
 
 
     
-    func photoSection() -> NSCollectionLayoutSection {
+    private func photoSection() -> NSCollectionLayoutSection {
     
         
         
