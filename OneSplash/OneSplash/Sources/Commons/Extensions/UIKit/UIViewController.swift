@@ -36,5 +36,5 @@ extension UIViewController {
             print("completion")
             self.dismiss(animated: true, completion: completion)
         }
-    }   
+    }
 }

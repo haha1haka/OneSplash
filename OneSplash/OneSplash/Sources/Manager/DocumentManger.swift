@@ -23,7 +23,7 @@ final class DocumentManager {
         return imageDirectory
     }
     
-    func saveImageToDocument(fileName: String, image: UIImage) {
+    func saveImageToDocument(fileName: String, image: UIImage, completion: @escaping () -> Void) {
         
         guard let unsplashImageDirectory = unsplashImageStoreDirectoryPath() else { return }
         
@@ -32,6 +32,7 @@ final class DocumentManager {
         switch isFileExist {
         case .yes:
             pushImage(to: unsplashImageDirectory, leadingPath: fileName, image: image)
+            completion()
         case .no:
             do {
                 try FileManager.default.createDirectory(at: unsplashImageDirectory, withIntermediateDirectories: true)
@@ -39,6 +40,7 @@ final class DocumentManager {
                 print("경로 문제")
             }
             pushImage(to: unsplashImageDirectory, leadingPath: fileName, image: image)
+            completion()
         }
     }
     

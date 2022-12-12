@@ -94,17 +94,11 @@ extension PhotoDetailViewController {
     @objc
     func saveButtonClicked() {
         
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        
-        
-        //print("🌞\(selfView.pageIndex)")
-        
         guard let photos = try? viewModel.mainPhotosDataStore.value() else { return }
         guard let pageIndex = selfView.pageIndex else { return }
         
         
-        //⭐️ 질문하기 잭
+        
         let currentUSItem = photos[pageIndex]
         
         var downloadedImage: UIImage?
@@ -122,9 +116,12 @@ extension PhotoDetailViewController {
                 
                 downloadedImage = UIImage(data: data)
                 
-                DocumentManager.shared.saveImageToDocument(fileName:currentUSItem.id,
-                                                           image: downloadedImage ??
-                                                                  UIImage(systemName: "exclamationmark.triangle.fill")!)
+                DocumentManager.shared.saveImageToDocument(
+                    fileName:currentUSItem.id,
+                    image: downloadedImage ??
+                    UIImage(systemName: "exclamationmark.triangle.fill")!) {
+                    self.showAlert(message: "이미지 저장 완료", completion: {})
+                }
             }
         }.resume()
 
