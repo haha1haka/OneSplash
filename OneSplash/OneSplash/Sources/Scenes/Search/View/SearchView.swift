@@ -26,7 +26,7 @@ final class SearchView: BaseView {
 
 extension SearchView {
     //
-    private func collectionViewLayoutByScopeType() -> UICollectionViewLayout {
+    func collectionViewLayoutByScopeType() -> UICollectionViewLayout {
         print("👻dfsfs")
         switch scopeType {
         case .photos: return cofigurePhotosLayout()

@@ -1,7 +1,7 @@
 import Foundation
 import RealmSwift
 
-//⭐️ 알고 쓰기
+
 protocol PhotoDataBaseRepository {
     func createPhoto(item: USPhoto)
     func fetchPhoto() -> Results<USPhoto>

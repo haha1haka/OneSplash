@@ -10,10 +10,5 @@ final class AlbumViewModel {
     func fetchPhoto() {
         self.albumPhotoDataStore
             .onNext(photoRepository.fetchPhoto().map{$0})
-            
-            
-            
-            //.value =
     }
-    
 }

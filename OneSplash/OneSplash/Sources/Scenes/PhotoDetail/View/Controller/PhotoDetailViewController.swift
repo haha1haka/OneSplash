@@ -94,6 +94,10 @@ extension PhotoDetailViewController {
     @objc
     func saveButtonClicked() {
         
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        
         //print("🌞\(selfView.pageIndex)")
         
         guard let photos = try? viewModel.mainPhotosDataStore.value() else { return }
@@ -104,20 +108,23 @@ extension PhotoDetailViewController {
         let currentUSItem = photos[pageIndex]
         
         var downloadedImage: UIImage?
-        let imageUrl = URL(string: currentUSItem.urls?.regular ?? "")
+        
 
         
         viewModel.createPhoto(item: currentUSItem)
         
-        //⭐️ 킹피셔 개선
+        let imageUrl = URL(string: currentUSItem.urls?.regular ?? "")
+        
         URLSession.shared.dataTask(with: imageUrl!) { data, response, error in
             guard let data = data, error == nil else { return }
-
-            //⭐️ 이미지를 저장 하는게 좋은지, 데이터를 저장해서 다져올때 kf 로 변환 하는게 좋은지? 잭
+    
             DispatchQueue.main.async() {
+                
                 downloadedImage = UIImage(data: data)
-                //⭐️ 개선 해보기
-                DocumentManager.shared.saveImageToDocument(fileName: currentUSItem.id, image: downloadedImage ?? UIImage(systemName: "exclamationmark.triangle.fill")!)
+                
+                DocumentManager.shared.saveImageToDocument(fileName:currentUSItem.id,
+                                                           image: downloadedImage ??
+                                                                  UIImage(systemName: "exclamationmark.triangle.fill")!)
             }
         }.resume()
 

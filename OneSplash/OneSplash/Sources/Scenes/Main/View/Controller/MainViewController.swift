@@ -39,12 +39,10 @@ final class MainViewController: BaseViewController {
     private var dataSource: Datasource!
     
     
-    
     let viewModel = MainViewModel()
     
     override func configureInit() {
         configureCollectionViewDataSource()
-        
     }
 }
 
@@ -189,12 +187,7 @@ extension MainViewController: UICollectionViewDelegate {
             
             photoDetailViewController.viewModel.mainPhotosDataStore
                 .onNext(try! viewModel.topicPhotosDataStore.value())
-                
-                    
-                    
-                
-            
-            
+
             transition(photoDetailViewController, transitionStyle: .push)
             
         default:

@@ -56,6 +56,9 @@ final class PhotoCell: BaseCollectionViewCell {
     
         let imageUrl = URL(string: item.urls?.regular ?? "")
         imageView.kf.setImage(with: imageUrl)
+        
+        
+        
         self.photoItem = item
     }
     

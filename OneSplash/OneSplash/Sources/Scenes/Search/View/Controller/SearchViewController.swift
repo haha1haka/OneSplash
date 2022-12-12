@@ -173,8 +173,7 @@ extension SearchViewContoller: UISearchBarDelegate {
         viewModel.requestSearchPhotos(query: "\(query)")
     }
     
-    
-    
+
     // 캔슬 버튼 클릭시
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         print("⚠️")

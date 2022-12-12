@@ -6,15 +6,6 @@ final class UnsplashService {
     
     static let shared = UnsplashService()
     
-    func requestTest() {
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        let url = URL(string: "")!
-        var urlRequest = URLRequest(url: url)
-        let download = session.downloadTask(with: urlRequest)
-        
-        
-    }
     
     func request<T: Decodable>(type: T.Type = T.self, path:String, queryItems: [URLQueryItem], httpMethod: HTTPMethod, headers: [String: String], completion: @escaping (Result<T, NetworkError>) -> Void) {
         
@@ -31,6 +22,7 @@ final class UnsplashService {
         urlRequest.allHTTPHeaderFields = headers
         
         URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+
             
             guard let httpResponse = response as? HTTPURLResponse else { return }
             print("📭 Request \(urlRequest.url!)")
@@ -66,4 +58,9 @@ final class UnsplashService {
             
         }.resume()
     }
+}
+enum TaskProvider {
+    case data
+    case response
+    case error
 }
