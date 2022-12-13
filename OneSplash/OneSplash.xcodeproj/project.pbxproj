@@ -50,6 +50,7 @@
 		F4A64F2C290A5230004732B9 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A64F2B290A5230004732B9 /* SearchViewModel.swift */; };
 		F4ACE8D329123D0F00C3980D /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ACE8D229123D0F00C3980D /* NetworkError.swift */; };
 		F4AFAE1329480BDA0060737B /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AFAE1229480BDA0060737B /* Results.swift */; };
+		F4AFAE15294817550060737B /* SearchResultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AFAE14294817550060737B /* SearchResultHeaderView.swift */; };
 		F4C39FEC290E20160078ED81 /* AlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C39FEB290E20160078ED81 /* AlbumViewModel.swift */; };
 		F4C39FEE290E34BC0078ED81 /* PhotoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C39FED290E34BC0078ED81 /* PhotoRepository.swift */; };
 		F4C39FF4290E3AEE0078ED81 /* DocumentManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C39FF3290E3AEE0078ED81 /* DocumentManger.swift */; };
@@ -98,6 +99,7 @@
 		F4A64F2B290A5230004732B9 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		F4ACE8D229123D0F00C3980D /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		F4AFAE1229480BDA0060737B /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
+		F4AFAE14294817550060737B /* SearchResultHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultHeaderView.swift; sourceTree = "<group>"; };
 		F4C39FEB290E20160078ED81 /* AlbumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewModel.swift; sourceTree = "<group>"; };
 		F4C39FED290E34BC0078ED81 /* PhotoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRepository.swift; sourceTree = "<group>"; };
 		F4C39FF3290E3AEE0078ED81 /* DocumentManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManger.swift; sourceTree = "<group>"; };
@@ -450,6 +452,7 @@
 				F420B8562905594100809EBD /* SearchView.swift */,
 				F4924194290948480047AFC1 /* SearchResultView.swift */,
 				F41F6A45290BC8E800F9B48F /* Cell */,
+				F4AFAE14294817550060737B /* SearchResultHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 				F42B101729039753006162D1 /* Observable.swift in Sources */,
 				F43CC43B290137E100224588 /* BaseViewController.swift in Sources */,
 				F4893639290CB4EE004CB39F /* PhotoDetailView.swift in Sources */,
+				F4AFAE15294817550060737B /* SearchResultHeaderView.swift in Sources */,
 				F420B855290558F100809EBD /* AlbumViewController.swift in Sources */,
 				F48B4A3D290D3DAE002D7EAC /* Photo.swift in Sources */,
 				F400608B290821C3000EDAF5 /* SearchResultViewController.swift in Sources */,

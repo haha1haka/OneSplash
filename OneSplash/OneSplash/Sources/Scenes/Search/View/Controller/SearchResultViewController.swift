@@ -1,4 +1,6 @@
 import UIKit
+import RxSwift
+import RxCocoa
 
 
 
@@ -9,6 +11,8 @@ protocol DidSelecteItemEvent {
 
 final class SearchResultViewController: BaseViewController {
     
+    let disposeBag = DisposeBag()
+    
     let selfView = SearchResultView()
     override func loadView() {
         view = selfView
@@ -16,7 +20,7 @@ final class SearchResultViewController: BaseViewController {
     
     typealias Datasource = UICollectionViewDiffableDataSource<String, String>
     typealias ListCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, String>
-    typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<UICollectionViewListCell>
+    typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<SearchResultHeaderView>
     
     
     var dataSource: Datasource!
@@ -49,12 +53,26 @@ extension SearchResultViewController {
             return cell
         }
         
+        
+        
+        
+//        let headerRegistration = HeaderRegistration(elementKind: UICollectionView.elementKindSectionHeader) { supplementaryView, elementKind, indexPath in
+//            guard let sectionIdentifier = self.dataSource.sectionIdentifier(for: indexPath.section) else { return }
+//            var configuration = UIListContentConfiguration.sidebarHeader()
+//            configuration.text = sectionIdentifier.description
+//
+//            supplementaryView.contentConfiguration = configuration
+//        }
+        
         let headerRegistration = HeaderRegistration(elementKind: UICollectionView.elementKindSectionHeader) { supplementaryView, elementKind, indexPath in
             guard let sectionIdentifier = self.dataSource.sectionIdentifier(for: indexPath.section) else { return }
-            var configuration = UIListContentConfiguration.sidebarHeader()
-            configuration.text = sectionIdentifier.description
+            supplementaryView.titleLabel.text = sectionIdentifier
             
-            supplementaryView.contentConfiguration = configuration
+            supplementaryView.clearButton.rx.tap
+                .bind(onNext: {
+                    print("ddd")
+                })
+                .disposed(by: self.disposeBag)
         }
         
         
