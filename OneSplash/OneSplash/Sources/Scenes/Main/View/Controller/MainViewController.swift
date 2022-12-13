@@ -44,12 +44,13 @@ final class MainViewController: BaseViewController {
     override func configureInit() {
         configureCollectionViewDataSource()
     }
+
 }
 
 extension MainViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.title = "🎉 OneSplash"
         
         selfView.collectionView.delegate = self
         

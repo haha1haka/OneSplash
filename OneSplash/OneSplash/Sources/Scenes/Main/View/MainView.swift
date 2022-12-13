@@ -5,7 +5,7 @@ class MainView: BaseView {
     
     lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
-        view.backgroundColor = .black
+        view.backgroundColor = .white
         return view
     }()
     

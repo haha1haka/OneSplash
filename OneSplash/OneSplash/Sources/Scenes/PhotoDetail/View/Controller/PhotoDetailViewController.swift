@@ -120,7 +120,7 @@ extension PhotoDetailViewController {
                     fileName:currentUSItem.id,
                     image: downloadedImage ??
                     UIImage(systemName: "exclamationmark.triangle.fill")!) {
-                    self.showAlert(message: "이미지 저장 완료", completion: {})
+                    self.showAlert(message: "이미지 저장 완료")
                 }
             }
         }.resume()

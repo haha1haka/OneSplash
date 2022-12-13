@@ -9,4 +9,10 @@ class BaseViewController: UIViewController {
     }
     
     func configureInit() { }
+    
+    func setNavigationBar(title: String = "") {
+        navigationItem.title = title
+    }
+    
+    
 }

@@ -74,6 +74,8 @@ extension SearchViewContoller {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "Search Photo 🎁" 
+        
         viewModel.searchPhotosDataStrore
             .withUnretained(self)
             .bind(onNext: { vc, usSearch in
@@ -214,14 +216,14 @@ extension SearchViewContoller: UISearchBarDelegate {
             
             print(selectedScope)
         case 1:
-            showAlert(message: "준비 중이예요!", completion: {})
+            print("")
             //viewModel.requestSearchCollectionsPhotos()
             //selfView.scopeType = .collections
             //selfView.collectionView.setCollectionViewLayout(selfView.collectionViewLayoutByScopeType(), animated: false)
             //configureSearchDataSource()
             
         default:
-            showAlert(message: "준비 중이예요!", completion: {})
+            print("")
             //selfView.scopeType = .collections
             //레이아웃 바꾸고
             //데이터소스바꾸고

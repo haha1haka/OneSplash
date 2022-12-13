@@ -11,6 +11,9 @@ final class AlbumViewController: BaseViewController {
     private var collectionViewDataSource: UICollectionViewDiffableDataSource<Int, USPhoto>!
     
     override func configureInit() {
+        
+        navigationItem.title = "Album 🖼"
+        
         configureCollectionViewDataSource()
         //applySnapshot()
         

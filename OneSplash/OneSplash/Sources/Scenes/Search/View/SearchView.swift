@@ -5,7 +5,7 @@ final class SearchView: BaseView {
     
     lazy var collectionView: UICollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayoutByScopeType())
-        view.backgroundColor = .orange
+        view.backgroundColor = .white
         return view
     }()
     

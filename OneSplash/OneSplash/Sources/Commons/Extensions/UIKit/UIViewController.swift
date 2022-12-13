@@ -29,12 +29,11 @@ extension UIViewController {
         }
     }
     
-    func showAlert(message: String, completion: @escaping () -> Void) {
+    func showAlert(message: String) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         self.present(alert, animated: true)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-            print("completion")
-            self.dismiss(animated: true, completion: completion)
+            self.dismiss(animated: true)
         }
     }
 }
