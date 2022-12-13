@@ -16,7 +16,7 @@ final class SearchResultViewController: BaseViewController {
     
     override func configureInit() {
         configureDataSource()
-        applyShapShot()
+        applyInitSnapShot()
     }
     
     
@@ -51,13 +51,12 @@ extension SearchResultViewController {
         }
     }
     
-    
-    private func applyShapShot() {
+    private func applyInitSnapShot() {
         var snapshot = dataSource.snapshot()
-        snapshot.appendSections(["🔥 Recent Search"])
-        snapshot.appendItems(["1", "2","3", "4", "5"])
-        dataSource.apply(snapshot)
+            snapshot.appendSections(["🔥 Recent Search"])
+            dataSource.apply(snapshot)
     }
+
     
 }
 

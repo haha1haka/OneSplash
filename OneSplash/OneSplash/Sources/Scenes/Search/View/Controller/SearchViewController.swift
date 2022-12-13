@@ -61,22 +61,22 @@ final class SearchViewContoller: BaseViewController {
     }
 
 }
+
+
 extension SearchViewContoller {
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        viewModel.fetchSearchLog()
     }
-}
-extension SearchViewContoller {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewModel.searchPhotosDataStrore
             .withUnretained(self)
             .bind(onNext: { vc, usSearch in
-                
-                print("🧨\(usSearch)")
-                
+
                 var snapshot = NewSnapshot()
                 snapshot.deleteSections(["Results"])
                 snapshot.appendSections(["Results"])
@@ -102,13 +102,13 @@ extension SearchViewContoller {
 
         }
         
-        searchController.searchBar.rx.text.orEmpty
-            .debounce(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
-            .bind { value in
-                print("💰\(value)")
-            }
+        //searchController.searchBar.rx.text.orEmpty
+        //    .debounce(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
+        //    .bind { value in
+        //        print("💰\(value)")
+        //    }
         
-        
+
         
         
         
@@ -162,15 +162,33 @@ extension SearchViewContoller: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchController.showsSearchResultsController = true
         print("🟩")
+        // 패치 -> 데이터 뿌리기
+
+        let fetchedList = viewModel.searchLogFetchedData.toArray()
+        let itemList = fetchedList.map{ $0.text }
+        var snapshot = self.searchResultViewController.dataSource.snapshot()
+        snapshot.appendItems(itemList)
+        self.searchResultViewController.dataSource.apply(snapshot)
+        
+        
+//        viewModel.searchTextDataStore
+//            .bind(onNext: {
+//
+//            })
+//            .disposed(by: disposeBag)
+        
+        
     }
     
     
     // 엔터 버튼 클릭시
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let query = searchController.searchBar.text else { return }
+        guard let searchText = searchController.searchBar.text else { return }
         searchController.showsSearchResultsController = false
         print("♥️")
-        viewModel.requestSearchPhotos(query: "\(query)")
+        viewModel.requestSearchPhotos(query: "\(searchText)")
+        
+        viewModel.saveToRepository(text: searchText)
     }
     
 
@@ -193,18 +211,17 @@ extension SearchViewContoller: UISearchBarDelegate {
             configurePhotoDataSource()
             
             
-            
             print(selectedScope)
         case 1:
-            viewModel.requestSearchCollectionsPhotos()
-            selfView.scopeType = .collections
+            showAlert(message: "준비 중이예요!", completion: {})
+            //viewModel.requestSearchCollectionsPhotos()
+            //selfView.scopeType = .collections
+            //selfView.collectionView.setCollectionViewLayout(selfView.collectionViewLayoutByScopeType(), animated: false)
+            //configureSearchDataSource()
             
-            selfView.collectionView.setCollectionViewLayout(selfView.collectionViewLayoutByScopeType(), animated: false)
-            configureSearchDataSource()
-            
-            print(selectedScope)
         default:
-            selfView.scopeType = .collections
+            showAlert(message: "준비 중이예요!", completion: {})
+            //selfView.scopeType = .collections
             //레이아웃 바꾸고
             //데이터소스바꾸고
             //data apply

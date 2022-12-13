@@ -49,10 +49,13 @@
 		F4924195290948480047AFC1 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4924194290948480047AFC1 /* SearchResultView.swift */; };
 		F4A64F2C290A5230004732B9 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A64F2B290A5230004732B9 /* SearchViewModel.swift */; };
 		F4ACE8D329123D0F00C3980D /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ACE8D229123D0F00C3980D /* NetworkError.swift */; };
+		F4AFAE1329480BDA0060737B /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AFAE1229480BDA0060737B /* Results.swift */; };
 		F4C39FEC290E20160078ED81 /* AlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C39FEB290E20160078ED81 /* AlbumViewModel.swift */; };
 		F4C39FEE290E34BC0078ED81 /* PhotoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C39FED290E34BC0078ED81 /* PhotoRepository.swift */; };
 		F4C39FF4290E3AEE0078ED81 /* DocumentManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C39FF3290E3AEE0078ED81 /* DocumentManger.swift */; };
 		F4C4971F29028486004E4FFD /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C4971E29028486004E4FFD /* HTTPMethod.swift */; };
+		F4E43F6629472C59003DAEDB /* SearchLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E43F6529472C59003DAEDB /* SearchLog.swift */; };
+		F4E43F6829472C9F003DAEDB /* SearchLogRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E43F6729472C9F003DAEDB /* SearchLogRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,10 +97,13 @@
 		F4924194290948480047AFC1 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		F4A64F2B290A5230004732B9 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		F4ACE8D229123D0F00C3980D /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		F4AFAE1229480BDA0060737B /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		F4C39FEB290E20160078ED81 /* AlbumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewModel.swift; sourceTree = "<group>"; };
 		F4C39FED290E34BC0078ED81 /* PhotoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRepository.swift; sourceTree = "<group>"; };
 		F4C39FF3290E3AEE0078ED81 /* DocumentManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManger.swift; sourceTree = "<group>"; };
 		F4C4971E29028486004E4FFD /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		F4E43F6529472C59003DAEDB /* SearchLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLog.swift; sourceTree = "<group>"; };
+		F4E43F6729472C9F003DAEDB /* SearchLogRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLogRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +314,8 @@
 			children = (
 				F48B4A3C290D3DAE002D7EAC /* Photo.swift */,
 				F4C39FED290E34BC0078ED81 /* PhotoRepository.swift */,
+				F4E43F6529472C59003DAEDB /* SearchLog.swift */,
+				F4E43F6729472C9F003DAEDB /* SearchLogRepository.swift */,
 			);
 			path = DataBase;
 			sourceTree = "<group>";
@@ -328,6 +336,7 @@
 			children = (
 				F43CC434290136D300224588 /* Foundation */,
 				F43CC433290136CE00224588 /* UIKit */,
+				F4AFAE1129480BD00060737B /* RealmSwift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -453,6 +462,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		F4AFAE1129480BD00060737B /* RealmSwift */ = {
+			isa = PBXGroup;
+			children = (
+				F4AFAE1229480BDA0060737B /* Results.swift */,
+			);
+			path = RealmSwift;
+			sourceTree = "<group>";
+		};
 		F4C39FF2290E3AE10078ED81 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -564,6 +581,7 @@
 				F42B10142903957D006162D1 /* MainViewModel.swift in Sources */,
 				F43C15E929012BAB00E9C151 /* AppDelegate.swift in Sources */,
 				F4924195290948480047AFC1 /* SearchResultView.swift in Sources */,
+				F4E43F6629472C59003DAEDB /* SearchLog.swift in Sources */,
 				F489363B290CB709004CB39F /* PhotoDetailViewModel.swift in Sources */,
 				F4C39FF4290E3AEE0078ED81 /* DocumentManger.swift in Sources */,
 				F46B162C29028226001984C0 /* Unsplash.swift in Sources */,
@@ -572,6 +590,7 @@
 				F41013C92904E4640035FE16 /* PhotoCell.swift in Sources */,
 				F420B8512905587500809EBD /* TabBarController.swift in Sources */,
 				F420B8592905594800809EBD /* AlbumView.swift in Sources */,
+				F4E43F6829472C9F003DAEDB /* SearchLogRepository.swift in Sources */,
 				F4599BF7291527E400C78671 /* UnsplashRouter.swift in Sources */,
 				F43CC44A290173B600224588 /* HeaderView.swift in Sources */,
 				F420B853290558E500809EBD /* SearchViewController.swift in Sources */,
@@ -581,6 +600,7 @@
 				F4A64F2C290A5230004732B9 /* SearchViewModel.swift in Sources */,
 				F43CC43D2901381100224588 /* BaseCollectionViewCell.swift in Sources */,
 				F4C39FEE290E34BC0078ED81 /* PhotoRepository.swift in Sources */,
+				F4AFAE1329480BDA0060737B /* Results.swift in Sources */,
 				F46B1632290282AD001984C0 /* UnsplashService.swift in Sources */,
 				F4ACE8D329123D0F00C3980D /* NetworkError.swift in Sources */,
 			);
