@@ -24,19 +24,19 @@ Unsplash 에서 제공하는 다양한 API 들을 호출하여 앱을 구성하�
 
 
 
-<br/><br/><br/><br/>
+<br/><br/><br/><br/><br/>
 
 # Table Of Contents
 
-* ##### Tech Stack
+* ##### [Tech Stack](https://github.com/haha1haka/OneSplash#tech-stack-1)
 
-* Tech Posting
+* [Tech Posting](https://github.com/haha1haka/OneSplash#used-tech-posting)
 
-* Application architecture
+* [Application architecture](https://github.com/haha1haka/OneSplash#application-architecture)
 
-* Simulation
+* [Simulation](https://github.com/haha1haka/OneSplash#simulation)
 
-* 회고
+* [회고](https://github.com/haha1haka/OneSplash#%ED%9A%8C%EA%B3%A0)
 
     
 
@@ -74,21 +74,14 @@ Unsplash 에서 제공하는 다양한 API 들을 호출하여 앱을 구성하�
 
 <br/>
 
-* MVC 와 MVVM
-
-* RxSwift, RxCocoa
-
-* UICollectionViewCompositiaonlLayout
-
-* UICollectionViewDiffableDatasSource
-
-* UISearchViewController
-
-* SingletonPattern
-
-* RepositoryPattern
-
-* Network Router Pattern
+* [MVC 와 MVVM](https://github.com/haha1haka/iOS-Topics/issues/29)
+* [UICollectionViewCompositiaonlLayout](https://github.com/haha1haka/iOS-Topics/issues/1)
+* [UICollectionViewDiffableDatasSource](https://github.com/haha1haka/iOS-Topics/issues/3)
+* [UISearchViewController](https://github.com/haha1haka/iOS-Topics/issues/18)
+* [SingletonPattern](https://github.com/haha1haka/iOS-Topics/issues/30)
+* [RepositoryPattern](https://github.com/haha1haka/iOS-Topics/issues/20)
+* RxSwift, RxCocoa(updating...)
+* Network Router Pattern(updating...)
 
 
 
@@ -101,10 +94,6 @@ Unsplash 에서 제공하는 다양한 API 들을 호출하여 앱을 구성하�
 
 
 
-
-
-
-<br/><br/><br/><br/>
 
 ## Application architecture
 
@@ -138,7 +127,7 @@ Rx를 이용하여, emit 한 data 를 controller 에서 bind 처리(UI update) �
 
 
 
-
+<br/>
 
 ### Detail photos 확인 및 저장하기
 
@@ -161,7 +150,7 @@ override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionV
 }
 ```
 
-
+<br/>
 
 
 
@@ -177,7 +166,7 @@ clear 버튼 클릭시 DB 상에 데이터도 지워주고 collectionView snapsh
 
 
 
-
+<br/>
 
 
 
