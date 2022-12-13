@@ -11,6 +11,7 @@ protocol DidSelecteItemEvent {
 
 final class SearchResultViewController: BaseViewController {
     
+    let viewModel = SearchViewModel()
     let disposeBag = DisposeBag()
     
     let selfView = SearchResultView()
@@ -70,7 +71,14 @@ extension SearchResultViewController {
             
             supplementaryView.clearButton.rx.tap
                 .bind(onNext: {
-                    print("ddd")
+                    print("fasdfa")
+                    
+                    var snapshot = self.dataSource.snapshot()
+                    let allItems = snapshot.itemIdentifiers(inSection: "🔥 Recent Search")
+                    snapshot.deleteItems(allItems)
+                    self.dataSource.apply(snapshot)
+
+                    self.viewModel.deleteAllItemInRealm()
                 })
                 .disposed(by: self.disposeBag)
         }

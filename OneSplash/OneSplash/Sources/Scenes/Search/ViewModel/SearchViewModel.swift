@@ -9,7 +9,6 @@ final class SearchViewModel {
     
     var searchPhotosDataStrore = BehaviorSubject<USSearch>(value: USSearch(total: 0, totalPages: 0, results: []))
     var searchCollectionsDataStore: Observable<USCollection?> = Observable(nil)
-    //var searchTextDataStore = PublishRelay<String>()
     var searchLogFetchedData: Results<SearchLog>!
     
     func requestSearchPhotos(query: String) {
@@ -29,13 +28,12 @@ final class SearchViewModel {
         repository.addLog(item: item)
     }
     
-    
-    
     func fetchSearchLog() {
-        
         searchLogFetchedData = repository.fetchLog()
-        
-        //searchLogInRealm.map{ $0 }?.forEach{  searchTextDataStore.accept($0.text)  }
+    }
+    
+    func deleteAllItemInRealm() {
+        repository.deleteAllLog()
     }
     
     
