@@ -38,7 +38,9 @@ extension SearchResultViewController {
         
         let listCellRegistration = ListCellRegistration { cell, indexPath, itemIdentifier in
             var configuration = cell.defaultContentConfiguration()
+            configuration.image = UIImage(systemName: "magnifyingglass")
             configuration.text = itemIdentifier
+            configuration.imageProperties.tintColor = .secondaryLabel
             cell.contentConfiguration = configuration
         }
         
@@ -51,6 +53,7 @@ extension SearchResultViewController {
             guard let sectionIdentifier = self.dataSource.sectionIdentifier(for: indexPath.section) else { return }
             var configuration = UIListContentConfiguration.sidebarHeader()
             configuration.text = sectionIdentifier.description
+            
             supplementaryView.contentConfiguration = configuration
         }
         
