@@ -32,6 +32,7 @@ final class DocumentManager {
         switch isFileExist {
         case .yes:
             pushImage(to: unsplashImageDirectory, leadingPath: fileName, image: image)
+            
             completion()
         case .no:
             do {
@@ -59,7 +60,7 @@ final class DocumentManager {
     
     private func pushImage(to unsplashImageDirectory : URL,leadingPath fileName: String, image: UIImage) {
         let fileURL = unsplashImageDirectory.appendingPathComponent(fileName)
-        print("File Location: \(fileURL)")
+        print("🙀File Location: \(fileURL)")
         
         guard let data = image.jpegData(compressionQuality: 0.5) else { return }
         

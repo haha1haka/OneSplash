@@ -166,7 +166,7 @@ extension SearchViewContoller: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchController.showsSearchResultsController = true
         print("🟩")
-        // 패치 -> 데이터 뿌리기
+        
 
         let fetchedList = viewModel.searchLogFetchedData.toArray()
         let itemList = fetchedList.map{ $0.text }
@@ -174,13 +174,7 @@ extension SearchViewContoller: UISearchBarDelegate {
         snapshot.appendItems(itemList)
         self.searchResultViewController.dataSource.apply(snapshot)
         
-        
-//        viewModel.searchTextDataStore
-//            .bind(onNext: {
-//
-//            })
-//            .disposed(by: disposeBag)
-        
+
         
     }
     

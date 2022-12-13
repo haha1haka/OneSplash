@@ -15,8 +15,6 @@ final class AlbumViewController: BaseViewController {
         navigationItem.title = "Album 🖼"
         
         configureCollectionViewDataSource()
-        //applySnapshot()
-        
         selfView.collectionView.delegate = self
         
         viewModel.albumPhotoDataStore.bind { [weak self] photoList in
