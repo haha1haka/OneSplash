@@ -1,5 +1,12 @@
 import UIKit
 
+
+
+protocol DidSelecteItemEvent {
+    func searhedResultViewControllerIndexPath(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+}
+
+
 final class SearchResultViewController: BaseViewController {
     
     let selfView = SearchResultView()
@@ -13,10 +20,12 @@ final class SearchResultViewController: BaseViewController {
     
     
     var dataSource: Datasource!
+    var eventDelegate: DidSelecteItemEvent?
     
     override func configureInit() {
         configureDataSource()
         applyInitSnapShot()
+        selfView.collectionView.delegate = self
     }
     
     
@@ -60,9 +69,8 @@ extension SearchResultViewController {
     
 }
 
-extension SearchResultViewController {
-    
-    
-    
-    
+extension SearchResultViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.eventDelegate?.searhedResultViewControllerIndexPath(collectionView, didSelectItemAt: indexPath)
+    }
 }

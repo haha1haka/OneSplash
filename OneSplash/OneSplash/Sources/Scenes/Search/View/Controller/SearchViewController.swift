@@ -57,6 +57,7 @@ final class SearchViewContoller: BaseViewController {
         navigationItem.searchController = searchController
         print("SearchViewController")
         selfView.collectionView.delegate = self
+        searchResultViewController.eventDelegate = self
         configurePhotoDataSource()
     }
 
@@ -233,7 +234,7 @@ extension SearchViewContoller: UISearchBarDelegate {
 
 extension SearchViewContoller: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedItem = searchTypeDataSource.itemIdentifier(for: indexPath)
+        
         
         let photoDetailViewController = PhotoDetailViewController()
         
@@ -241,7 +242,7 @@ extension SearchViewContoller: UICollectionViewDelegate {
         photoDetailViewController.currentPhotoItemIndex = indexPath.item
         
         
-        let a = viewModel.searchPhotosDataStrore
+        
         
         photoDetailViewController.viewModel.mainPhotosDataStore
             .onNext(try! viewModel.searchPhotosDataStrore.value().results)
@@ -253,5 +254,16 @@ extension SearchViewContoller: UICollectionViewDelegate {
         
         transition(photoDetailViewController, transitionStyle: .push)
 
+    }
+}
+
+extension SearchViewContoller: DidSelecteItemEvent {
+    func searhedResultViewControllerIndexPath(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if let selectedItemText = self.searchResultViewController.dataSource.itemIdentifier(for: indexPath) {
+            viewModel.requestSearchPhotos(query: "\(selectedItemText)")
+            searchController.showsSearchResultsController = false
+        }
+        
     }
 }
