@@ -180,6 +180,8 @@ clear 버튼 클릭시 DB 상에 데이터도 지워주고 collectionView snapsh
 
 collectionView cell image 구성시, document에 있는 image 를 load 해 옵니다 
 
+<img width="954" alt="스크린샷 2022-12-13 17 27 27" src="https://user-images.githubusercontent.com/106936018/207264498-0dd4e255-c6fa-464b-b98b-80ed98a04504.png">
+
 > ✅DB(realm) 를 이용해서도 실습 완료
 
 

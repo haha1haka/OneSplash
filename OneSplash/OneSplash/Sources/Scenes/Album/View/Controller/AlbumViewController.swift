@@ -45,7 +45,8 @@ extension AlbumViewController {
         
         let CellRegistration = UICollectionView.CellRegistration<PhotoCell,USPhoto> { cell, indexPath, itemIdentifier in
             let imageUrl = URL(string: itemIdentifier.urls?.regular ?? "")
-            cell.imageView.kf.setImage(with: imageUrl)
+            //cell.imageView.kf.setImage(with: imageUrl)
+            cell.imageView.image = DocumentManager.shared.loadImageFromDocument(fileName: itemIdentifier.id)
         }
         
         collectionViewDataSource = UICollectionViewDiffableDataSource<Int, USPhoto>(collectionView: selfView.collectionView) {

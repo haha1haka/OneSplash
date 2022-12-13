@@ -45,7 +45,7 @@ final class DocumentManager {
         }
     }
     
-    private func loadImageFromDocument(fileName: String) -> UIImage? {
+    func loadImageFromDocument(fileName: String) -> UIImage? {
         guard let imageDirectory = unsplashImageStoreDirectoryPath() else {return nil}
         let fileURL = imageDirectory.appendingPathComponent(fileName)
         let isFileExist = FileManager.default.fileExists(atPath: fileURL.path) == true ? IsFileExist.yes : IsFileExist.no
