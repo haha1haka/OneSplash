@@ -8,7 +8,7 @@
 
 
 
-## OneSplash
+# OneSplash
 
 <br/>
 
@@ -16,22 +16,29 @@ Unsplash 앱을 클론 코딩 하였습니다(디자인구성은 다르게 하�
 
 Unsplash 에서 제공하는 다양한 API 들을 호출하여 앱을 구성하였습니다.
 
-원하는 photo Topic 을 불러 올 수 있고 사진을 저장할 수 있습니다.
+원하는 photo Topic 을 불러 올 수 있고 사진을 앱 Document directory folder에 저장하고 불러올 수 있습니다.
 
 원하는 사진을 검색하고 저장 할 수 있습니다.
 
-원치 않는 사진을 삭제 할 수 있습니다
+
 
 
 
 <br/><br/><br/><br/>
 
-## Table Of Contents
+# Table Of Contents
 
-<br/>
+* ##### Tech Stack
 
-* 
+* Tech Posting
 
+* Application architecture
+
+* Simulation
+
+* 회고
+
+    
 
 <br/><br/><br/><br/>
 
@@ -39,11 +46,51 @@ Unsplash 에서 제공하는 다양한 API 들을 호출하여 앱을 구성하�
 
 <br/>
 
+* MVVM, MVC
+
+* Swift5.7
+
+* UIKit
+
+* RxSwift
+
+* RxCocoa
+
+* URLSession
+
+* Snapkit
+
+* RealmDatabase
+
+    
 
 
-| 아키텍쳐  | 기술 및 라이브러리                                           |
-| --------- | ------------------------------------------------------------ |
-| MVVM, MVC | Swift5.7<br />UIKit<br />RxSwift<br />RxCocoa<br />URLSession<br />Snapkit<br />RealmDatabase |
+
+<br/><br/><br/><br/>
+
+
+
+## Used Tech Posting
+
+<br/>
+
+* MVC 와 MVVM
+
+* RxSwift, RxCocoa
+
+* UICollectionViewCompositiaonlLayout
+
+* UICollectionViewDiffableDatasSource
+
+* UISearchViewController
+
+* SingletonPattern
+
+* RepositoryPattern
+
+* Network Router Pattern
+
+
 
 
 
@@ -53,37 +100,23 @@ Unsplash 에서 제공하는 다양한 API 들을 호출하여 앱을 구성하�
 
 
 
-## Table of Apple's API and  Patterns
+
+
+
+
+<br/><br/><br/><br/>
+
+## Application architecture
 
 <br/>
-
-### Used Apple's API
-
-<br/>
-
-UICollectionViewCompositiaonlLayout
-
-UICollectionViewDiffableDatasSource
-
-UISearchViewController
-
-<br/><br/>
-
-### Patterns
-
-<br/>
-
-SingletonPattern
-
-RepositoryPattern
-
-
 
 
 
 
 
 <br/><br/><br/><br/>
+
+
 
 ## Simulation
 
@@ -91,7 +124,7 @@ RepositoryPattern
 
 
 
-Topic 에 따른 사진 API 호출
+### Request Topic and Topic'sPhoto API
 
 
 
@@ -99,13 +132,7 @@ Topic 에 따른 사진 API 호출
 
 
 
-Detail photos 확인하기
-
-
-
-
-
-Search
+### Detail photos 확인
 
 
 
@@ -113,7 +140,9 @@ Search
 
 
 
-저장된 사진 확인
+
+
+### Search Photos and 최근 검색어 기능 추가 삭제
 
 
 
@@ -121,7 +150,7 @@ Search
 
 
 
-저장된 사진 삭제 하기 
+### AlbumPhotos
 
 
 

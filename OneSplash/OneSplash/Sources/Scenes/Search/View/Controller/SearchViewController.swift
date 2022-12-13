@@ -68,6 +68,7 @@ extension SearchViewContoller {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
         viewModel.fetchSearchLog()
     }
     
@@ -190,8 +191,12 @@ extension SearchViewContoller: UISearchBarDelegate {
         searchController.showsSearchResultsController = false
         print("♥️")
         viewModel.requestSearchPhotos(query: "\(searchText)")
+    
+        let searchLogList = viewModel.searchLogFetchedData.toArray().map{ $0.text }
         
-        viewModel.saveToRepository(text: searchText)
+        if !searchLogList.contains(searchText) {
+            viewModel.saveToRepository(text: searchText)
+        }
     }
     
 

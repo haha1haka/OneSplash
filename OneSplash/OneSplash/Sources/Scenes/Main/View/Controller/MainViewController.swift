@@ -48,6 +48,11 @@ final class MainViewController: BaseViewController {
 }
 
 extension MainViewController {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "🎉 OneSplash"
@@ -56,14 +61,7 @@ extension MainViewController {
         
         viewModel.requestTopic()
         
-//        viewModel.topicDataStore.bind { [weak self] topics in // [USTopic]
-//            print("🥶  \(topics)")
-//            guard let self = self else { return }
-//            var snapshot = NSDiffableDataSourceSnapshot<String, SectionItem>()
-//            snapshot.appendSections(["Topics"])
-//            snapshot.appendItems(topics.map(SectionItem.topic))
-//            self.dataSource.apply(snapshot)
-//        }
+
         
         viewModel.topicDataStore
             .withUnretained(self)
@@ -79,25 +77,13 @@ extension MainViewController {
             
         
         
-//        viewModel.topicPhotosDataStore.bind { [weak self] topicPhotos in
-//            guard let self = self else { return }
-//            var snapshot = self.dataSource.snapshot()
-//            //⭐️ 메모리 너무 올라감 잭
-//            if !snapshot.sectionIdentifiers.isEmpty {
-//                snapshot.deleteSections(["Topic'sPhotos"])
-//                snapshot.deleteItems(topicPhotos.map(SectionItem.topicPhoto))
-//
-//            }
-//            snapshot.appendSections(["Topic'sPhotos"])
-//            snapshot.appendItems(topicPhotos.map(SectionItem.topicPhoto))
-//            self.dataSource.apply(snapshot)
-//        }
+
         
         viewModel.topicPhotosDataStore
             .withUnretained(self)
             .bind(onNext: { vc, unTopicPhotos in
                 var snapshot = self.dataSource.snapshot()
-                //⭐️ 메모리 너무 올라감 잭
+                
                 if !snapshot.sectionIdentifiers.isEmpty {
                     snapshot.deleteSections(["Topic'sPhotos"])
                     snapshot.deleteItems(unTopicPhotos.map(SectionItem.topicPhoto))
@@ -192,9 +178,7 @@ extension MainViewController: UICollectionViewDelegate {
             transition(photoDetailViewController, transitionStyle: .push)
             
         default:
-            print("")
-            
-            
+            return
         }
     }
 }
