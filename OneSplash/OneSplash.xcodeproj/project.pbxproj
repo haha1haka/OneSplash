@@ -125,24 +125,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F41F6A3E290B96A700F9B48F /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				F420B852290558E500809EBD /* SearchViewController.swift */,
-				F400608A290821C3000EDAF5 /* SearchResultViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		F41F6A45290BC8E800F9B48F /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				F41F6A41290B96E300F9B48F /* UserCell.swift */,
-				F41F6A3F290B96D700F9B48F /* CollectionCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
 		F42B101129039541006162D1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,10 +136,11 @@
 		F42B101229039545006162D1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F489363F290CB746004CB39F /* Controller */,
+				F43CC4362901378800224588 /* MainViewController.swift */,
 				F43CC442290138E100224588 /* MainView.swift */,
 				F43CC449290173B600224588 /* HeaderView.swift */,
-				F4893643290CD23A004CB39F /* Cell */,
+				F43CC444290138E600224588 /* TopicCell.swift */,
+				F41013C82904E4640035FE16 /* PhotoCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -207,12 +190,11 @@
 		F43CC424290135AC00224588 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				F4C39FF2290E3AE10078ED81 /* Manager */,
 				F43CC42D2901365100224588 /* Application */,
-				F43CC430290136B100224588 /* Commons */,
 				F43CC42E2901368500224588 /* Networking */,
 				F43CC42F2901369200224588 /* DataBase */,
 				F43CC426290135BE00224588 /* Scenes */,
+				F43CC430290136B100224588 /* Commons */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -325,6 +307,7 @@
 		F43CC430290136B100224588 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				F4C39FF2290E3AE10078ED81 /* Manager */,
 				F42B101829039754006162D1 /* Utils */,
 				F43CC435290136DF00224588 /* Components */,
 				F43CC432290136C400224588 /* Bases */,
@@ -389,32 +372,16 @@
 		F489363D290CB710004CB39F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F489363E290CB716004CB39F /* Controller */,
+				F4893636290CB4B3004CB39F /* PhotoDetailViewController.swift */,
 				F4893638290CB4EE004CB39F /* PhotoDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		F489363E290CB716004CB39F /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				F4893636290CB4B3004CB39F /* PhotoDetailViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		F489363F290CB746004CB39F /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				F43CC4362901378800224588 /* MainViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		F4893640290CB772004CB39F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F4893642290CB778004CB39F /* Controller */,
+				F420B854290558F100809EBD /* AlbumViewController.swift */,
 				F420B8582905594800809EBD /* AlbumView.swift */,
 			);
 			path = View;
@@ -428,30 +395,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		F4893642290CB778004CB39F /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				F420B854290558F100809EBD /* AlbumViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		F4893643290CD23A004CB39F /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				F43CC444290138E600224588 /* TopicCell.swift */,
-				F41013C82904E4640035FE16 /* PhotoCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
 		F4924196290948530047AFC1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F41F6A3E290B96A700F9B48F /* Controller */,
+				F420B852290558E500809EBD /* SearchViewController.swift */,
+				F400608A290821C3000EDAF5 /* SearchResultViewController.swift */,
 				F420B8562905594100809EBD /* SearchView.swift */,
 				F4924194290948480047AFC1 /* SearchResultView.swift */,
-				F41F6A45290BC8E800F9B48F /* Cell */,
+				F41F6A41290B96E300F9B48F /* UserCell.swift */,
+				F41F6A3F290B96D700F9B48F /* CollectionCell.swift */,
 				F4AFAE14294817550060737B /* SearchResultHeaderView.swift */,
 			);
 			path = View;
