@@ -3,31 +3,19 @@
 <br/><br/><br/>
 
 # OneSplash
-
 > *개발기간: 2022.10.20 ~ 2022.10.27*
 
 * Unsplash API 를 이용해, 기획 디자인 개발을 진행한 앱 입니다.
-
 * 원하는 photo Topic 을 불러 올 수 있고 사진을 앱 Document directory folder에 저장하고 불러올 수 있습니다.
-
 * 원하는 사진을 검색하고 저장 할 수 있습니다.
-
-
-
-
 
 <br/><br/>
 
 # Table Of Contents
-
-* ##### [Tech Stack](https://github.com/haha1haka/OneSplash#tech-stack-1)
-
+* #### [Tech Stack](https://github.com/haha1haka/OneSplash#tech-stack-1)
 * [Tech Posting](https://github.com/haha1haka/OneSplash#used-tech-posting)
-
 * [Application architecture](https://github.com/haha1haka/OneSplash#application-architecture)
-
 * [Simulation](https://github.com/haha1haka/OneSplash#simulation)
-
 * [회고](https://github.com/haha1haka/OneSplash#%ED%9A%8C%EA%B3%A0)
 
     
@@ -35,26 +23,15 @@
 <br/><br/>
 
 ## Tech Stack 
-
-* MVVM, MVC
-
+* #### MVVM, MVC
 * Swift5.7
-
 * UIKit
-
 * RxSwift
-
 * RxCocoa
-
 * URLSession
-
 * Snapkit
-
 * RealmDatabase
-
-    
-
-
+  
 
 <br/><br/>
 
