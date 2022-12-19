@@ -72,8 +72,3 @@ final class DocumentManager {
     }
 }
 
-//⭐️ 잭
-//    var documentDirectoryPath2: URL? {
-//        guard let documentDiretory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {return nil}
-//        return documentDiretory
-//    }

@@ -9,7 +9,6 @@ class ImageView: UIImageView {
         
     }()
     
-
     convenience init(frame: CGRect = .zero, labelText: String = "") {
         self.init(frame: frame)
         configureLayout()
@@ -40,7 +39,4 @@ class ImageView: UIImageView {
     func configureAttributes(_ labelText: String) {
         label.text = labelText
     }
-    
-    
-    
 }

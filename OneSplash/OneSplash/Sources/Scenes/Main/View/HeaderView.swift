@@ -33,7 +33,6 @@ final class HeaderView: UICollectionReusableView {
         }
     }
     
-    
     func configureAttributes(with title: String) {
         titleLabel.text = title
     }

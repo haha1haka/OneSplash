@@ -44,7 +44,4 @@ extension UnsplashRouter {
                     "Authorization": "Client-ID \(UnsplashAPIKey.appKey)"]
         }
     }
-    
-    
-    
 }

@@ -8,32 +8,32 @@ final class PhotoDetailView: BaseView {
     
     
     lazy var collectionView: UICollectionView = {
-        let view = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
-        //view.backgroundColor = .brown
+        let view = UICollectionView(
+            frame: .zero,
+            collectionViewLayout: configureCollectionViewLayout()
+        )
         return view
     }()
     var floatingButton = UIButton(type: .custom)
     
     var pageIndex: Int?
     
-    
     override func configureHierarchy() {
         self.addSubview(collectionView)
         self.addSubview(floatingButton)
     }
     
-    
     override func configureLayout() {
         collectionView.snp.makeConstraints {
             $0.edges.equalTo(self.safeAreaLayoutGuide)
         }
+        
         floatingButton.snp.makeConstraints {
             $0.width.height.equalTo(60)
             $0.bottom.equalTo(self.safeAreaLayoutGuide).inset(10)
             $0.trailing.equalTo(self.safeAreaLayoutGuide).inset(10)
         }
     }
-    
     
     override func configureAttributes() {
         floatingButton.tintColor = .white
@@ -43,16 +43,8 @@ final class PhotoDetailView: BaseView {
         floatingButton.translatesAutoresizingMaskIntoConstraints = false
         floatingButton.setTitleColor(UIColor.orange, for: .normal)
         floatingButton.setImage(UIImage(systemName: "tray.and.arrow.down"), for: .normal)
-        //roundButton.layer.frame.size.width/2 ⭐️ 왜 with 못불러 오는지 확인 하기
     }
-    
-
 }
-
-
-
-
-
 
 extension PhotoDetailView {
     private func configureCollectionViewLayout() -> UICollectionViewLayout {

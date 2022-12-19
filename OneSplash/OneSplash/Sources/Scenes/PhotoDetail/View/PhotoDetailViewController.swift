@@ -10,29 +10,22 @@ final class PhotoDetailViewController: BaseViewController {
     
     private let selfView = PhotoDetailView()
     
+    override func loadView() { view = selfView }
+    
     private var collectionViewDataSource: UICollectionViewDiffableDataSource<String, USPhoto>!
     
     let viewModel = PhotoDetailViewModel()
     
-    
     var photoDetailType = PhotoDetailType.addPhoto
     
-    // ⭐️ 뷰모델로 해보기
     var currentPhotoItemIndex: Int?
-    
-    
-    override func loadView() { view = selfView }
-        
 }
 
-// MARK: - LifeCycle
 extension PhotoDetailViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         tabBarController?.tabBar.isHidden = true
-        
         switch photoDetailType {
         case .addPhoto:
             selfView.floatingButton.setImage(UIImage(systemName: "tray.and.arrow.down"), for: .normal)
@@ -41,13 +34,10 @@ extension PhotoDetailViewController {
         }
     }
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureDataSource()
-        
-
         
         viewModel.mainPhotosDataStore
             .withUnretained(self)
@@ -64,38 +54,24 @@ extension PhotoDetailViewController {
                     let indexPath = IndexPath(item: currentPhotoItemIndex, section: 0)
                     vc.selfView.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
                 }
-                
-                
-            })
+        })
         
         selfView.floatingButton.addTarget(self, action: #selector(saveButtonClicked), for: UIControl.Event.touchUpInside)
-        
     }
 }
 
-
-
-
-// MARK: - addTargetMethod
 extension PhotoDetailViewController {
-    /*
-     - 받아온 pageIndex 이용해서 id 값 접근 --> 램에 저장 하기
-     -
-     */
+
     @objc
     func saveButtonClicked() {
         
         guard let photos = try? viewModel.mainPhotosDataStore.value() else { return }
         guard let pageIndex = selfView.pageIndex else { return }
         
-        
-        
         let currentUSItem = photos[pageIndex]
         
         var downloadedImage: UIImage?
-        
-
-        
+    
         viewModel.createPhoto(item: currentUSItem)
         
         let imageUrl = URL(string: currentUSItem.urls?.regular ?? "")
@@ -115,24 +91,14 @@ extension PhotoDetailViewController {
                 }
             }
         }.resume()
-
-        
-
     }
 }
 
-
-
-
-
-
-// MARK: - DataSource
 extension PhotoDetailViewController {
     private func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration<PhotoCell, USPhoto> { cell, indexPath, itemIdentifier in
             cell.configureAttributes(with: itemIdentifier, labelIsEmpty: true)
         }
-        
         
         collectionViewDataSource = UICollectionViewDiffableDataSource<String, USPhoto>(collectionView: selfView.collectionView) { collectionView, indexPath, itemIdentifier in
             let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
@@ -140,11 +106,4 @@ extension PhotoDetailViewController {
         }
         
     }
-}
-
-extension PhotoDetailViewController {
-    
-}
-extension PhotoDetailViewController {
-    
 }

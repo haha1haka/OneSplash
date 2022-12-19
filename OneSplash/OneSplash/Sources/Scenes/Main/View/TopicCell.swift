@@ -11,7 +11,6 @@ final class TopicCell: BaseCollectionViewCell {
         return view
     }()
     
-
     override func configureHierarchy() {
         self.backgroundColor = .systemPink
         contentView.addSubview(label)

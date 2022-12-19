@@ -17,5 +17,4 @@ final class TabBarController: UITabBarController {
         albumViewController.tabBarItem.image = UIImage(systemName: "person.crop.circle.fill")
         viewControllers = [mainViewController, searchViewController, albumViewController]
     }
- 
 }

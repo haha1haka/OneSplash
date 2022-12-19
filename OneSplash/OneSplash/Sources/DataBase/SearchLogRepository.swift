@@ -9,11 +9,9 @@ protocol SearchLogRepositoryType {
     func deleteAllLog()
 }
 
-
 final class SearchLogRepository: SearchLogRepositoryType {
     
     let database = try! Realm()
-    
     
     func addLog(item: SearchLog) {
         do {
@@ -34,6 +32,7 @@ final class SearchLogRepository: SearchLogRepositoryType {
             print(error)
         }
     }
+    
     func deleteAllLog() {
         do {
             try database.write {
@@ -44,7 +43,6 @@ final class SearchLogRepository: SearchLogRepositoryType {
             print(error)
         }
     }
-
 
     func fetchLog() -> Results<SearchLog> {
         return database.objects(SearchLog.self)

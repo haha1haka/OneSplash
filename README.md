@@ -1,30 +1,22 @@
 <img width="955" alt="스크린샷 2022-12-12 18 05 57" src="https://user-images.githubusercontent.com/106936018/207005184-20f3764b-6540-4803-a935-569a2b8a358a.png">
 
-<br/><br/><br/><br/><br/>
-
-
-
-
-
-
+<br/><br/><br/>
 
 # OneSplash
 
-<br/>
+> *개발기간: 2022.10.20 ~ 2022.10.27*
 
-Unsplash 앱을 클론 코딩 하였습니다(디자인구성은 다르게 하였습니다.)
+* Unsplash API 를 이용해, 기획 디자인 개발을 진행한 앱 입니다.
 
-Unsplash 에서 제공하는 다양한 API 들을 호출하여 앱을 구성하였습니다.
+* 원하는 photo Topic 을 불러 올 수 있고 사진을 앱 Document directory folder에 저장하고 불러올 수 있습니다.
 
-원하는 photo Topic 을 불러 올 수 있고 사진을 앱 Document directory folder에 저장하고 불러올 수 있습니다.
-
-원하는 사진을 검색하고 저장 할 수 있습니다.
+* 원하는 사진을 검색하고 저장 할 수 있습니다.
 
 
 
 
 
-<br/><br/><br/><br/><br/>
+<br/><br/>
 
 # Table Of Contents
 
@@ -40,11 +32,9 @@ Unsplash 에서 제공하는 다양한 API 들을 호출하여 앱을 구성하�
 
     
 
-<br/><br/><br/><br/>
+<br/><br/>
 
 ## Tech Stack 
-
-<br/>
 
 * MVVM, MVC
 
@@ -66,13 +56,9 @@ Unsplash 에서 제공하는 다양한 API 들을 호출하여 앱을 구성하�
 
 
 
-<br/><br/><br/><br/>
-
-
+<br/><br/>
 
 ## Used Tech Posting
-
-<br/>
 
 * [MVC 와 MVVM](https://github.com/haha1haka/iOS-Topics/issues/29)
 * [UICollectionViewCompositiaonlLayout](https://github.com/haha1haka/iOS-Topics/issues/1)
@@ -89,9 +75,7 @@ Unsplash 에서 제공하는 다양한 API 들을 호출하여 앱을 구성하�
 
 
 
-<br/><br/><br/><br/>
-
-
+<br/><br/>
 
 
 
@@ -105,17 +89,15 @@ MVVM 아키텍쳐를 이용하여, viewController 에 있던 model 과 model 관
 
 Rx를 이용하여, emit 한 data 를 controller 에서 bind 처리(UI update) 하였습니다.
 
-<br/><br/><br/><br/>
+<br/><br/>
 
 
 
 ## Simulation
 
-<br/>
 
 
-
-### Request Topic and Topic'sPhoto API
+### 1. Request Topic and Topic'sPhoto API
 
 
 
@@ -129,7 +111,7 @@ Rx를 이용하여, emit 한 data 를 controller 에서 bind 처리(UI update) �
 
 <br/>
 
-### Detail photos 확인 및 저장하기
+### 2. Detail photos 확인 및 저장하기
 
 
 
@@ -154,7 +136,7 @@ override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionV
 
 
 
-### Search Photos and 최근 검색어 기능 추가 및 삭제
+### 3. Search Photos and 최근 검색어 기능 추가 및 삭제
 
 
 
@@ -170,7 +152,7 @@ clear 버튼 클릭시 DB 상에 데이터도 지워주고 collectionView snapsh
 
 
 
-### AlbumPhotos
+### 4. AlbumPhotos
 
 ![4](https://user-images.githubusercontent.com/106936018/207251980-2afeb540-4f10-4fce-82c3-5ca9b28c062b.gif)
 
@@ -186,27 +168,13 @@ collectionView cell image 구성시, document에 있는 image 를 load 해 옵�
 
 
 
-<br/><br/><br/><br/>
+<br/><br/>
 
 
 
 ## 회고
 
 <br/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

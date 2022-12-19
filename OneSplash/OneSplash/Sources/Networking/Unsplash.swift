@@ -21,9 +21,7 @@ class USPhoto: Object, Decodable {
         self.height = height
         self.user = user
         self.urls = urls
-        
     }
-    
 }
 
 struct USSearch: Decodable, Hashable {
@@ -81,8 +79,8 @@ struct Collections: Decodable {
 
 struct USCollection: Decodable, Hashable {
     let title: String
-    let totalPhotos: Int //⭐️
-    let user: USUser // 여기 안에 name 만
+    let totalPhotos: Int
+    let user: USUser
     let previewPhotos: [PreviewPhoto]
 
     enum CodingKeys: String, CodingKey {
@@ -92,7 +90,6 @@ struct USCollection: Decodable, Hashable {
         case previewPhotos = "preview_photos"
     }
 }
-
 
 struct PreviewPhoto: Decodable, Hashable {
     let urls: USUrls

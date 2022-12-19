@@ -7,11 +7,9 @@ protocol PhotoDataBaseRepository {
     func fetchPhoto() -> Results<USPhoto>
 }
 
-
 final class PhotoRepository: PhotoDataBaseRepository {
     
     let database = try! Realm()
-    
     
     func createPhoto(item: USPhoto) {
         do {
@@ -32,18 +30,7 @@ final class PhotoRepository: PhotoDataBaseRepository {
             print(error)
         }
     }
-//    func updatePhoto(item: USPhoto) {
-//        do {
-//            try database.write {
-//
-//            }
-//        }
-//    }
-    
-    
-    
-    
-    
+
     func fetchPhoto() -> Results<USPhoto> {
         return database.objects(USPhoto.self)
     }

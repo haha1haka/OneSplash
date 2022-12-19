@@ -31,9 +31,7 @@ final class PhotoCell: BaseCollectionViewCell {
         return attributes
     }
 
-
     override func configureHierarchy() {
-//        self.backgroundColor = .tintColor
         contentView.addSubview(imageView)
         imageView.addSubview(label)
     }
@@ -42,23 +40,17 @@ final class PhotoCell: BaseCollectionViewCell {
         imageView.snp.makeConstraints {
             $0.edges.equalTo(contentView)
         }
+        
         label.snp.makeConstraints {
             $0.leading.equalTo(imageView.snp.leading).offset(10)
             $0.bottom.equalTo(imageView.snp.bottom).inset(10)
         }
-        //self.layer.cornerRadius = 8
     }
     
     func configureAttributes(with item: USPhoto, labelIsEmpty: Bool = false) {
         labelIsEmpty == false ? (label.text = item.user?.name) : (label.text = "")
-        
-
-    
         let imageUrl = URL(string: item.urls?.regular ?? "")
         imageView.kf.setImage(with: imageUrl)
-        
-        
-        
         self.photoItem = item
     }
     
